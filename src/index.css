@@ -1,0 +1,65 @@
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+body {
+  background-color: #7eb2dd;
+}
+.rammetto-one-regular {
+  font-family: "Rammetto One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #fcecc9;
+}
+
+.social-icon {
+  font-size: 2.25rem;
+  color: #fcecc9;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.social-icon:hover {
+  opacity: 0.8;
+}
+.luckiest-guy-regular {
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 400;
+  color: #683b4d;
+  font-style: normal;
+}
+.crete-round-regular {
+  font-family: "Crete Round", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.crete-round-regular-italic {
+  font-family: "Crete Round", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+.belanosima-regular {
+  font-family: "Belanosima", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.belanosima-semibold {
+  font-family: "Belanosima", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.belanosima-bold {
+  font-family: "Belanosima", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.shrikhand-regular {
+  font-family: "Shrikhand", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #1d2a19;
+}
