@@ -20,29 +20,27 @@ export function ComicText({
     throw new Error("children must be a string")
   }
 
-  const dotColor = "#EF4444"
+  const dotColor = "#FFFFFF"
   const backgroundColor = "#FACC15"
 
   return (
     <motion.div
-      className={cn("text-center select-none", className)}
+      className={cn("text-center select-none inline-block", className)}
       style={{
         fontSize: `${fontSize}rem`,
         fontFamily: "'Bangers', 'Comic Sans MS', 'Impact', sans-serif",
         fontWeight: "1000",
-        WebkitTextStroke: `${fontSize * 0.35}px #000000`, // Thick black outline
         transform: "skewX(-10deg)",
         textTransform: "uppercase",
         filter: `
-          drop-shadow(5px 5px 0px #000000) 
-          drop-shadow(3px 3px 0px ${dotColor})
+          drop-shadow(5px 5px 0px #000000)
+          drop-shadow(3px 3px 0px #EF4444)
         `,
-        backgroundColor: backgroundColor,
-        backgroundImage: `radial-gradient(circle at 1px 1px, ${dotColor} 1px, transparent 0)`,
-        backgroundSize: "8px 8px",
-        backgroundClip: "text",
-        WebkitBackgroundClip: "text",
-        WebkitTextFillColor: "transparent",
+        color: "#000000",
+        padding: `${fontSize * 0.15}rem ${fontSize * 0.25}rem`,
+        background: backgroundColor,
+        backgroundImage: `radial-gradient(circle at 2px 2px, ${dotColor} 1.5px, transparent 0)`,
+        backgroundSize: "12px 12px",
         ...style,
       }}
       initial={{ opacity: 0, scale: 0.8, rotate: -2 }}
