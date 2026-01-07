@@ -29,7 +29,7 @@ export function ComicText({
       style={{
         fontSize: `${fontSize}rem`,
         fontFamily: "'Bangers', 'Comic Sans MS', 'Impact', sans-serif",
-        fontWeight: "900",
+        fontWeight: "1000",
         WebkitTextStroke: `${fontSize * 0.35}px #000000`, // Thick black outline
         transform: "skewX(-10deg)",
         textTransform: "uppercase",

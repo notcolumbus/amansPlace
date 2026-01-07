@@ -46,7 +46,7 @@ function WorkCard({ title, subtitle, content, link, pictures, color, titleFontCl
 
                             <h2 className="text-2xl opacity-70 mb-6">{subtitle}</h2>
 
-                            <p className="text-3xl mb-6 wrap-break-words crete-round-regular">{content}</p>
+                            <p className="text-3xl mb-6 wrap-break-words livvic-regular">{content}</p>
 
                             <a
                                 href={link}
