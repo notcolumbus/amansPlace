@@ -16,7 +16,7 @@ function Research() {
                 </div>
                 <div className="absolute bottom-0 left-0 p-6 z-20 pt-20">
                     <h1 className="text-2xl text-white font-bold familjen-grotesk-regular drop-shadow-lg">Advancing Regional Air Mobility in Appalachia</h1>
-                    <p className="text-white text-base mt-2 familjen-grotesk-regular drop-shadow-md">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id animi minus inventore, aspernatur iure voluptatibus, perspiciatis porro est fuga placeat corporis qui mollitia aliquid vel! Eius numquam illum necessitatibus voluptates.</p>
+                    <p className="text-white text-lg mt-2 familjen-grotesk-regular drop-shadow-md">A regional-scale modeling framework to evaluate how hybrid-electric STOL aircraft can close rural mobility gaps through Regional Air Mobility.</p>
                 </div>
                    <ProgressiveBlur position="top" height="60%" />
                 <ProgressiveBlur position="bottom" height="10%" />
@@ -36,7 +36,7 @@ function Research() {
                 </div>
                 <div className="absolute bottom-0 left-0 p-6 z-20 pt-20">
                     <h1 className="text-2xl text-white font-bold familjen-grotesk-regular drop-shadow-lg">Automation Of Generation Of Spatial Audio</h1>
-                    <p className="text-white text-base mt-2 familjen-grotesk-regular drop-shadow-md">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id animi minus inventore, aspernatur iure voluptatibus, perspiciatis porro est fuga placeat corporis qui mollitia aliquid vel! Eius numquam illum necessitatibus voluptates.</p>
+                    <p className="text-white text-lg mt-2 familjen-grotesk-regular drop-shadow-md">A new framework that automates music spatialization using contextual and structural cues embedded within a song’s envelopes.</p>
                 </div>
                 <ProgressiveBlur position="top" height="60%" />
                 <ProgressiveBlur position="bottom" height="10%" />
