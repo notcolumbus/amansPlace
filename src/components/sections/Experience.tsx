@@ -64,6 +64,13 @@ function Experience() {
             />
             
             <JobCard
+                company="VTHacks"
+                position="Technical Lead"
+                duration="Aug 2025 - Present"
+                logoSrc="https://icon2.cleanpng.com/20180404/lie/kisspng-virginia-tech-hokies-football-virginia-tech-hokies-tech-5ac541cd6511d2.677051881522876877414.jpg"
+            />
+            
+            <JobCard
                 company="Loopy Audio"
                 position="Research Team Lead"
                 duration="Aug 2025 - Present"

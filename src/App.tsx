@@ -13,9 +13,9 @@ function HomePage() {
         <div className="col-span-1" />
         <main className="col-span-2">
           <Header />
-          <h2 className="rammetto-one-regular text-4xl text-white pb-6">Teams</h2>
+          <h2 className="rammetto-one-regular text-4xl text-white pt-12 pb-6">Teams</h2>
           <Experience/>
-          <h2 className="rammetto-one-regular text-4xl text-white pt-8 pb-1 ">Work</h2>
+          <h2 className="rammetto-one-regular text-4xl text-white pt-12 pb-1">Work</h2>
           <h4 className="text-lg text-white/80 pb-6">Click to expand :p</h4>
           <CardContainer />
           <h3 className="text-white text-2xl mt-6">
@@ -34,9 +34,9 @@ function HomePage() {
               devpost
             </LinkPreview>!
           </h3>
-          <h2 className="rammetto-one-regular text-4xl text-white pt-8 pb-6">Research</h2>
+          <h2 className="rammetto-one-regular text-4xl text-white pt-12 pb-6">Research</h2>
           <Research />
-          <h2 className="rammetto-one-regular text-4xl text-white pt-8 pb-6">My Dubs</h2>
+          <h2 className="rammetto-one-regular text-4xl text-white pt-12 pb-6">My Dubs</h2>
           <Dubs></Dubs>
         </main>
         <div className="col-span-1" />

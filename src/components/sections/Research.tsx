@@ -1,40 +1,34 @@
 function Research() {
-  return (
-    <div className="relative bg-[#2D2D2D] text-white overflow-hidden py-20">
-      
-      {/* Video layer */}
-      <div className="absolute right-0 top-0 h-full w-[55%] pointer-events-none">
-        <video
-          src="https://ik.imagekit.io/sjuopypj1/out.webm"
-          autoPlay
-          loop
-          muted
-          className="h-full w-full object-cover opacity-90 blur-[1px]"
-        />
-        {/* Blend */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,rgba(45,45,45,0)_0%,rgba(45,45,45,0.85)_55%,rgba(45,45,45,1)_100%)]" />
-      </div>
+    return (
+        <div className="relative overflow-hidden" style={{backgroundColor:"#2D2D2D"}}>
+            <video
+                src="https://ik.imagekit.io/sjuopypj1/out.webm"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-150 ml-auto"
+            />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-2xl px-10">
-        <span className="text-sm uppercase tracking-widest text-gray-400">
-          Research · 2023
-        </span>
+            <div className="absolute inset-0">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#2D2D2D]/30 to-[#2D2D2D]" />
+                <div className="absolute inset-0 backdrop-blur-[2px]" style={{
+                    maskImage: 'linear-gradient(to right, transparent 0%, black 100%)',
+                    WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 100%)'
+                }} />
+                <div className="absolute inset-0 backdrop-blur-[20px]" style={{
+                    maskImage: 'linear-gradient(to right, transparent 60%, black 100%)',
+                    WebkitMaskImage: 'linear-gradient(to right, transparent 60%, black 100%)'
+                }} />
+            </div>
 
-        <h1 className="text-4xl font-semibold mt-3 leading-tight">
-          Loopy
-        </h1>
-
-        <h2 className="text-xl text-gray-300 mt-2">
-          Automation of Spatial Audio Generation
-        </h2>
-
-        <p className="mt-6 text-gray-400 leading-relaxed max-w-prose">
-          dcksdvsdvsvdsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvsvs
-        </p>
-      </div>
-    </div>
-  )
+            <div className="absolute bottom-4 left-4 right-4 p-4 text-white z-10">
+                <h1 className="text-6xl">Loopy</h1>
+                <h2 className="text-2xl">Automation Of Generation Of Spatial Audio</h2>
+                <h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id animi minus inventore, aspernatur iure voluptatibus, perspiciatis porro est fuga placeat corporis qui mollitia aliquid vel! Eius numquam illum necessitatibus voluptates.</h3>
+            </div>
+        </div>
+    )
 }
-
 export default Research
+
