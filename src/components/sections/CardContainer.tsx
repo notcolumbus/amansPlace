@@ -32,9 +32,9 @@ Imagine this: you tap your card at Starbucks, and Piggy takes note. Over time, i
                 subtitle="Spatial Audio Library"
                 content="A Python library for Ambisonics spatial audio processing"
                 link="https://github.com"
-                pictures={["https://ik.imagekit.io/sjuopypj1/atlas.png"]}
+                pictures={["https://ik.imagekit.io/sjuopypj1/Gemini%20Generated%20Image.webp?updatedAt=1767884227402"]}
                 color="#6B8EE8"
-                titleFontClass="familjen-grotesk-regular"
+                titleFontClass="jetbrains-mono-regular"
             />
             
             <WorkCard 

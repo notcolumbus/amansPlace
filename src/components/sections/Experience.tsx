@@ -66,7 +66,7 @@ function Experience() {
             <JobCard
                 company="VTHacks"
                 position="Technical Lead"
-                duration="Aug 2025 - Present"
+                duration="Jan 2026 - Present"
                 logoSrc="https://vthacks.com/vthax_nav.svg"
             />
             
@@ -74,7 +74,7 @@ function Experience() {
                 company="Loopy Audio"
                 position="Research Team Lead"
                 duration="Aug 2025 - Present"
-                logoSrc=''
+                logoSrc='https://ik.imagekit.io/sjuopypj1/PNG%20to%20WEBP%20Converter.webp?updatedAt=1767878044533'
             />
             
             <JobCard

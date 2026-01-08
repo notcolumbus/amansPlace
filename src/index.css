@@ -64,3 +64,10 @@ body {
   color: #1d2a19;
 }
 
+.jetbrains-mono-regular {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+  color: #1d2741
+}
+

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 type WorkCardProps = {
     title: string;
@@ -13,12 +13,39 @@ type WorkCardProps = {
 
 function WorkCard({ title, subtitle, content, link, pictures, color, titleFontClass = "" }: WorkCardProps) {
     const [isOpen, setOpen] = useState(false);
+    const [fontSize, setFontSize] = useState(72);
+    const titleRef = useRef<HTMLHeadingElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+
     const handleEscape = (e:any) =>{
         if (isOpen && e.key == "Escape"){
             setOpen(false);
         }
     }
     document.addEventListener("keydown", handleEscape);
+
+    useEffect(() => {
+        const fitText = () => {
+            if (!titleRef.current || !containerRef.current) return;
+            
+            const container = containerRef.current;
+            const containerWidth = container.clientWidth - 48; // minus padding
+            
+            let size = 72;
+            titleRef.current.style.fontSize = `${size}px`;
+            
+            while (titleRef.current.scrollWidth > containerWidth && size > 16) {
+                size -= 2;
+                titleRef.current.style.fontSize = `${size}px`;
+            }
+            setFontSize(size);
+        };
+
+        fitText();
+        window.addEventListener('resize', fitText);
+        return () => window.removeEventListener('resize', fitText);
+    }, [title, isOpen]);
+
     return (
         <motion.div>
             {isOpen ?
@@ -72,9 +99,27 @@ function WorkCard({ title, subtitle, content, link, pictures, color, titleFontCl
                     </div>
                 </motion.div>
                 :
-                <motion.div layout className="aspect-2/3 w-full p-6 flex flex-col justify-between" style={{ backgroundColor: color }} onClick={() => setOpen(!isOpen)}>
-                    <motion.h1 layoutId={`title-${title}`} className={`text-7xl font-bold text-left ${titleFontClass}`}>{title}</motion.h1>
-                    <motion.img layoutId={`icon-${title}`} src={pictures[0]} alt={title} className=" w-43" />
+                <motion.div 
+                    ref={containerRef}
+                    layout 
+                    className="aspect-2/3 w-full p-6 flex flex-col justify-between" 
+                    style={{ backgroundColor: color }} 
+                    onClick={() => setOpen(!isOpen)}
+                >
+                    <motion.h1 
+                        ref={titleRef}
+                        layoutId={`title-${title}`} 
+                        className={`font-bold text-left ${titleFontClass}`}
+                        style={{ 
+                            fontSize: `${fontSize}px`,
+                            whiteSpace: title.trim().split(' ').length === 1 ? 'nowrap' : 'normal',
+                            wordBreak: 'normal',
+                            lineHeight: '1.1'
+                        }}
+                    >
+                        {title}
+                    </motion.h1>
+                    <motion.img layoutId={`icon-${title}`} src={pictures[0]} alt={title} className="w-43" />
 
                 </motion.div>
             }
