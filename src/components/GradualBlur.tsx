@@ -1,9 +1,29 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 import * as math from 'mathjs';
 
 import './GradualBlur.css';
 
-const DEFAULT_CONFIG = {
+interface GradualBlurConfig {
+  position?: 'top' | 'bottom' | 'left' | 'right';
+  strength?: number;
+  height?: string;
+  divCount?: number;
+  exponential?: boolean;
+  zIndex?: number;
+  animated?: boolean;
+  duration?: string;
+  easing?: string;
+  opacity?: number;
+  curve?: 'linear' | 'bezier' | 'ease-in' | 'ease-out' | 'ease-in-out';
+  responsive?: boolean;
+  target?: 'parent' | 'page';
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
+}
+
+const DEFAULT_CONFIG: GradualBlurConfig = {
   position: 'bottom',
   strength: 2,
   height: '6rem',
@@ -37,32 +57,32 @@ const PRESETS = {
   'page-footer': { position: 'bottom', height: '10rem', target: 'page', strength: 3 }
 };
 
-const CURVE_FUNCTIONS = {
-  linear: p => p,
-  bezier: p => p * p * (3 - 2 * p),
-  'ease-in': p => p * p,
-  'ease-out': p => 1 - Math.pow(1 - p, 2),
-  'ease-in-out': p => (p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2)
+const CURVE_FUNCTIONS: Record<string, (p: number) => number> = {
+  linear: (p: number) => p,
+  bezier: (p: number) => p * p * (3 - 2 * p),
+  'ease-in': (p: number) => p * p,
+  'ease-out': (p: number) => 1 - Math.pow(1 - p, 2),
+  'ease-in-out': (p: number) => (p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2)
 };
 
-const mergeConfigs = (...configs) => configs.reduce((acc, c) => ({ ...acc, ...c }), {});
-const getGradientDirection = position =>
+const mergeConfigs = (...configs: any[]) => configs.reduce((acc, c) => ({ ...acc, ...c }), {});
+const getGradientDirection = (position: string) =>
   ({
     top: 'to top',
     bottom: 'to bottom',
     left: 'to left',
     right: 'to right'
-  })[position] || 'to bottom';
+  } as Record<string, string>)[position] || 'to bottom';
 
-const debounce = (fn, wait) => {
-  let t;
-  return (...a) => {
+const debounce = (fn: (...args: any[]) => void, wait: number) => {
+  let t: number | undefined;
+  return (...a: any[]) => {
     clearTimeout(t);
     t = setTimeout(() => fn(...a), wait);
   };
 };
 
-const useResponsiveDimension = (responsive, config, key) => {
+const useResponsiveDimension = (responsive: boolean, config: any, key: string) => {
   const [value, setValue] = useState(config[key]);
   useEffect(() => {
     if (!responsive) return;
@@ -85,7 +105,7 @@ const useResponsiveDimension = (responsive, config, key) => {
   return responsive ? value : config[key];
 };
 
-const useIntersectionObserver = (ref, shouldObserve = false) => {
+const useIntersectionObserver = (ref: React.RefObject<HTMLDivElement | null>, shouldObserve = false) => {
   const [isVisible, setIsVisible] = useState(!shouldObserve);
 
   useEffect(() => {
@@ -100,12 +120,12 @@ const useIntersectionObserver = (ref, shouldObserve = false) => {
   return isVisible;
 };
 
-function GradualBlur(props) {
-  const containerRef = useRef(null);
+function GradualBlur(props: GradualBlurConfig & { preset?: string; hoverIntensity?: number; onAnimationComplete?: () => void }) {
+  const containerRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
 
   const config = useMemo(() => {
-    const presetConfig = props.preset && PRESETS[props.preset] ? PRESETS[props.preset] : {};
+    const presetConfig = props.preset && (PRESETS as Record<string, any>)[props.preset] ? (PRESETS as Record<string, any>)[props.preset] : {};
     return mergeConfigs(DEFAULT_CONFIG, presetConfig, props);
   }, [props]);
 
@@ -120,15 +140,15 @@ function GradualBlur(props) {
     const currentStrength =
       isHovered && config.hoverIntensity ? config.strength * config.hoverIntensity : config.strength;
 
-    const curveFunc = CURVE_FUNCTIONS[config.curve] || CURVE_FUNCTIONS.linear;
+    const curveFunc = CURVE_FUNCTIONS[config.curve || 'linear'] || CURVE_FUNCTIONS.linear;
 
     for (let i = 1; i <= config.divCount; i++) {
       let progress = i / config.divCount;
       progress = curveFunc(progress);
 
-      let blurValue;
+      let blurValue: number;
       if (config.exponential) {
-        blurValue = math.pow(2, progress * 4) * 0.0625 * currentStrength;
+        blurValue = Number(math.pow(2, progress * 4)) * 0.0625 * currentStrength;
       } else {
         blurValue = 0.0625 * (progress * config.divCount + 1) * currentStrength;
       }
@@ -144,8 +164,8 @@ function GradualBlur(props) {
 
       const direction = getGradientDirection(config.position);
 
-      const divStyle = {
-        position: 'absolute',
+      const divStyle: CSSProperties = {
+        position: 'absolute' as const,
         inset: '0',
         maskImage: `linear-gradient(${direction}, ${gradient})`,
         WebkitMaskImage: `linear-gradient(${direction}, ${gradient})`,
@@ -229,8 +249,8 @@ function GradualBlur(props) {
 
 const GradualBlurMemo = React.memo(GradualBlur);
 GradualBlurMemo.displayName = 'GradualBlur';
-GradualBlurMemo.PRESETS = PRESETS;
-GradualBlurMemo.CURVE_FUNCTIONS = CURVE_FUNCTIONS;
+(GradualBlurMemo as any).PRESETS = PRESETS;
+(GradualBlurMemo as any).CURVE_FUNCTIONS = CURVE_FUNCTIONS;
 export default GradualBlurMemo;
 
 const injectStyles = () => {

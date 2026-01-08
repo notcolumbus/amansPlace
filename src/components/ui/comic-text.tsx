@@ -1,4 +1,4 @@
-import { CSSProperties } from "react"
+import type { CSSProperties } from "react"
 import { motion } from "motion/react"
 
 import { cn } from "@/lib/utils"

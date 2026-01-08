@@ -1,10 +1,9 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
-import ClickSpark from "./components/ClickSpark.jsx"
-import GradualBlur from './components/GradualBlur.jsx';
+import ClickSpark from "./components/ClickSpark.tsx"
+import GradualBlur from './components/GradualBlur.tsx';
 
 createRoot(document.getElementById('root')!).render(
     <section style={{position: 'relative', minHeight: '100vh'}}>
