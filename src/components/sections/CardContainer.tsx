@@ -28,6 +28,16 @@ Imagine this: you tap your card at Starbucks, and Piggy takes note. Over time, i
             />
             
             <WorkCard 
+                title="ambisoncsPy" 
+                subtitle="Spatial Audio Library"
+                content="A Python library for Ambisonics spatial audio processing"
+                link="https://github.com"
+                pictures={["https://ik.imagekit.io/sjuopypj1/atlas.png"]}
+                color="#6B8EE8"
+                titleFontClass="familjen-grotesk-regular"
+            />
+            
+            <WorkCard 
                 title="Fit Finder" 
                 subtitle="A Fin"
                 content="blah"
