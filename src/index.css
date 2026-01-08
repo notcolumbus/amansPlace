@@ -1,4 +1,5 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&family=Familjen+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Luckiest+Guy&family=Rammetto+One&family=Shrikhand&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -14,7 +15,7 @@ body {
 }
 
 .social-icon {
-  font-size: 2.25rem;
+  font-size: 1.875rem;
   color: #fcecc9;
   cursor: pointer;
   transition: opacity 0.3s;
@@ -42,8 +43,8 @@ body {
 }
 .belanosima-regular {
   font-family: "Belanosima", sans-serif;
-  font-weight: 600;
-  font-style: italic;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .belanosima-semibold {
@@ -57,6 +58,7 @@ body {
   font-weight: 700;
   font-style: normal;
 }
+
 .shrikhand-regular {
   font-family: "Shrikhand", serif;
   font-weight: 400;
@@ -64,10 +66,16 @@ body {
   color: #1d2a19;
 }
 
+.familjen-grotesk-regular {
+  font-family: "Familjen Grotesk", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .jetbrains-mono-regular {
   font-family: "JetBrains Mono", monospace;
   font-weight: 400;
   font-style: normal;
-  color: #1d2741
+  color: #1d2741;
 }
 

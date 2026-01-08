@@ -1,5 +1,5 @@
 import JobCard from './JobCard';
-
+import { useState } from 'react';
 const KnotLogo = () => (
     <svg
         className="pl-4"
@@ -47,42 +47,73 @@ const KnotLogo = () => (
 );
 
 function Experience() {
+    const [isOpen, setOpen] = useState(true);
+    const toggleShow = () => {
+        setOpen(!isOpen)
+    }
     return (
-        <div className="grid grid-cols-3 gap-2">
-            <JobCard
-                company="Knot API"
-                position="Incoming Software Developer Intern"
-                duration="May 2026 - Aug 2026"
-                logo={<KnotLogo />}
-            />
-            
-            <JobCard
-                company="Idopt Lab"
-                position="Research Intern"
-                duration="Jan 2026 - May 2026"
-                logoSrc="https://ik.imagekit.io/sjuopypj1/vt.svg"
-            />
-            
-            <JobCard
-                company="VTHacks"
-                position="Technical Lead"
-                duration="Jan 2026 - Present"
-                logoSrc="https://vthacks.com/vthax_nav.svg"
-            />
-            
-            <JobCard
-                company="Loopy Audio"
-                position="Research Team Lead"
-                duration="Aug 2025 - Present"
-                logoSrc='https://ik.imagekit.io/sjuopypj1/PNG%20to%20WEBP%20Converter.webp?updatedAt=1767878044533'
-            />
-            
-            <JobCard
-                company="Lumiq"
-                position="AI Developer Intern"
-                duration="May 2025 - Aug 2025"
-                logoSrc="https://ik.imagekit.io/sjuopypj1/Lumiq%20Image%20Crop%20522x200.webp?updatedAt=1767872945686"
-            />
+        <div className="md:grid md:grid-cols-3 gap-2">
+            {isOpen ? (
+                <>
+                    <JobCard
+                        company="Knot API"
+                        position="Incoming Software Developer Intern"
+                        duration="May 2026 - Aug 2026"
+                        logo={<KnotLogo />}
+                    />
+                    
+                    <JobCard
+                        company="Idopt Lab"
+                        position="Research Intern"
+                        duration="Jan 2026 - May 2026"
+                        logoSrc="https://ik.imagekit.io/sjuopypj1/vt.svg"
+                    />
+                    
+                    <JobCard
+                        company="VTHacks"
+                        position="Technical Lead"
+                        duration="Jan 2026 - Present"
+                        logoSrc="https://vthacks.com/vthax_nav.svg"
+                    />
+                </>
+            ) : (
+                <>
+                <JobCard
+                        company="Knot API"
+                        position="Incoming Software Developer Intern"
+                        duration="May 2026 - Aug 2026"
+                        logo={<KnotLogo />}
+                    />
+                    
+                    <JobCard
+                        company="Idopt Lab"
+                        position="Research Intern"
+                        duration="Jan 2026 - May 2026"
+                        logoSrc="https://ik.imagekit.io/sjuopypj1/vt.svg"
+                    />
+                    
+                    <JobCard
+                        company="VTHacks"
+                        position="Technical Lead"
+                        duration="Jan 2026 - Present"
+                        logoSrc="https://vthacks.com/vthax_nav.svg"
+                    />
+                    <JobCard
+                        company="Loopy Audio"
+                        position="Research Team Lead"
+                        duration="Aug 2025 - Present"
+                        logoSrc='https://ik.imagekit.io/sjuopypj1/PNG%20to%20WEBP%20Converter.webp?updatedAt=1767878044533'
+                    />
+                    
+                    <JobCard
+                        company="Lumiq"
+                        position="AI Developer Intern"
+                        duration="May 2025 - Aug 2025"
+                        logoSrc="https://ik.imagekit.io/sjuopypj1/Lumiq%20Image%20Crop%20522x200.webp?updatedAt=1767872945686"
+                    />
+                </>
+            )}
+            <button onClick={toggleShow} className='md:collapse'>Toggle</button>
         </div>
     )
 }

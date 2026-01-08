@@ -14,8 +14,8 @@ function JobCard({ company, position, duration, logo, logoSrc }: JobCardProps) {
             {logo && <div className="">{logo}</div>}
             {logoSrc && <img className="w-16 h-16 object-contain" src={logoSrc} alt={`${company} logo`} />}
             
-            <div className="p-4 w-max">
-                <h2 className="text-xl">{company}</h2>
+            <div className="p-2 w-max">
+                <h2 className="text-m">{company}</h2>
                 <h3>{position}</h3>
                 <h4 className="text-black/70">{duration}</h4>
             </div>

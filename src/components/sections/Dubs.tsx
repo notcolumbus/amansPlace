@@ -38,9 +38,9 @@ function Dubs() {
     ];
 
     return (
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full">
             {cardData.map((card, idx) => (
-                <div key={idx} className={`relative  overflow-hidden min-h-100`}>
+                <div key={idx} className="relative overflow-hidden aspect-[3/4] sm:aspect-auto sm:h-64 md:h-72 lg:h-96">
                     <img
                         src={card.img}
                         alt={card.title}

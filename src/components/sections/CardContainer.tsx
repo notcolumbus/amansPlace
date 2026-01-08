@@ -2,7 +2,7 @@ import WorkCard from "./WorkCard"
 
 function CardContainer() {
     return (
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
             <WorkCard 
                 title="Piggy Bank" 
                 subtitle="A Financial App"
@@ -15,8 +15,7 @@ Imagine this: you tap your card at Starbucks, and Piggy takes note. Over time, i
                 ]}
                 link="kds"
                 color="#FF8CBA"
-                titleFontClass="luckiest-guy-regular"
-            />
+                titleFontClass="luckiest-guy-regular"                titleFontSize={48}            />
             <WorkCard 
                 title="Atlas" 
                 subtitle="A Fin"
@@ -25,6 +24,7 @@ Imagine this: you tap your card at Starbucks, and Piggy takes note. Over time, i
                 pictures={["https://ik.imagekit.io/sjuopypj1/atlas.png"]}
                 color="#f7c548"
                 titleFontClass="belanosima-regular"
+                titleFontSize={44}
             />
             
             <WorkCard 
@@ -34,6 +34,7 @@ Imagine this: you tap your card at Starbucks, and Piggy takes note. Over time, i
                 link="https://github.com"
                 pictures={["https://ik.imagekit.io/sjuopypj1/Gemini%20Generated%20Image.webp?updatedAt=1767884227402"]}
                 color="#6B8EE8"
+                titleFontSize={24}
                 titleFontClass="jetbrains-mono-regular"
             />
             
@@ -44,6 +45,7 @@ Imagine this: you tap your card at Starbucks, and Piggy takes note. Over time, i
                 link="https://github.com"
                 pictures={["https://ik.imagekit.io/sjuopypj1/Gemini%20Generated%20Image%20(4).png"]}
                 color="#659157"
+                titleFontSize={48}
                 titleFontClass="shrikhand-regular"
             />
             
