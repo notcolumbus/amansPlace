@@ -60,27 +60,28 @@ function Experience() {
                 company="Idopt Lab"
                 position="Research Intern"
                 duration="Jan 2026 - May 2026"
-                logoSrc="https://icon2.cleanpng.com/20180404/lie/kisspng-virginia-tech-hokies-football-virginia-tech-hokies-tech-5ac541cd6511d2.677051881522876877414.jpg"
+                logoSrc="https://ik.imagekit.io/sjuopypj1/vt.svg"
             />
             
             <JobCard
                 company="VTHacks"
                 position="Technical Lead"
                 duration="Aug 2025 - Present"
-                logoSrc="https://icon2.cleanpng.com/20180404/lie/kisspng-virginia-tech-hokies-football-virginia-tech-hokies-tech-5ac541cd6511d2.677051881522876877414.jpg"
+                logoSrc="https://vthacks.com/vthax_nav.svg"
             />
             
             <JobCard
                 company="Loopy Audio"
                 position="Research Team Lead"
                 duration="Aug 2025 - Present"
+                logoSrc=''
             />
             
             <JobCard
                 company="Lumiq"
                 position="AI Developer Intern"
                 duration="May 2025 - Aug 2025"
-                logo={<KnotLogo />}
+                logoSrc="https://ik.imagekit.io/sjuopypj1/Lumiq%20Image%20Crop%20522x200.webp?updatedAt=1767872945686"
             />
         </div>
     )
