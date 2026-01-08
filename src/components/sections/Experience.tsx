@@ -1,5 +1,6 @@
 import JobCard from './JobCard';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
 const KnotLogo = () => (
     <svg
         className="pl-4"
@@ -47,57 +48,57 @@ const KnotLogo = () => (
 );
 
 function Experience() {
-    const [isOpen, setOpen] = useState(true);
+    const [isOpen, setOpen] = useState(false);
+    const [toShow, setShow] = useState(true);
+    const [screenSize, setScreenSize] = useState(window.innerWidth);
+    
+    const handleResize = () => {
+        setScreenSize(window.innerWidth);
+    };
+  
     const toggleShow = () => {
-        setOpen(!isOpen)
-    }
+        setOpen(!isOpen);
+    };
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        
+        if (screenSize >= 768) {
+            setShow(false);
+            setOpen(true);
+        } else {
+            setShow(true);
+            setOpen(false);
+        }
+        
+        return () => window.removeEventListener('resize', handleResize);
+    }, [screenSize]);
+
     return (
         <div className="md:grid md:grid-cols-3 gap-2">
-            {isOpen ? (
+            <JobCard
+                company="Knot API"
+                position="Incoming Software Developer Intern"
+                duration="May 2026 - Aug 2026"
+                logo={<KnotLogo />}
+            />
+            
+            <JobCard
+                company="Idopt Lab"
+                position="Research Intern"
+                duration="Jan 2026 - May 2026"
+                logoSrc="https://ik.imagekit.io/sjuopypj1/vt.svg"
+            />
+            
+            <JobCard
+                company="VTHacks"
+                position="Technical Lead"
+                duration="Jan 2026 - Present"
+                logoSrc="https://vthacks.com/vthax_nav.svg"
+            />
+
+            {isOpen && (
                 <>
-                    <JobCard
-                        company="Knot API"
-                        position="Incoming Software Developer Intern"
-                        duration="May 2026 - Aug 2026"
-                        logo={<KnotLogo />}
-                    />
-                    
-                    <JobCard
-                        company="Idopt Lab"
-                        position="Research Intern"
-                        duration="Jan 2026 - May 2026"
-                        logoSrc="https://ik.imagekit.io/sjuopypj1/vt.svg"
-                    />
-                    
-                    <JobCard
-                        company="VTHacks"
-                        position="Technical Lead"
-                        duration="Jan 2026 - Present"
-                        logoSrc="https://vthacks.com/vthax_nav.svg"
-                    />
-                </>
-            ) : (
-                <>
-                <JobCard
-                        company="Knot API"
-                        position="Incoming Software Developer Intern"
-                        duration="May 2026 - Aug 2026"
-                        logo={<KnotLogo />}
-                    />
-                    
-                    <JobCard
-                        company="Idopt Lab"
-                        position="Research Intern"
-                        duration="Jan 2026 - May 2026"
-                        logoSrc="https://ik.imagekit.io/sjuopypj1/vt.svg"
-                    />
-                    
-                    <JobCard
-                        company="VTHacks"
-                        position="Technical Lead"
-                        duration="Jan 2026 - Present"
-                        logoSrc="https://vthacks.com/vthax_nav.svg"
-                    />
                     <JobCard
                         company="Loopy Audio"
                         position="Research Team Lead"
@@ -113,9 +114,14 @@ function Experience() {
                     />
                 </>
             )}
-            <button onClick={toggleShow} className='md:collapse'>Toggle</button>
+
+            {toShow && (
+                <button onClick={toggleShow} className='text-white md:hidden'>
+                    {isOpen ? 'Show Less' : 'Show More'}
+                </button>
+            )}
         </div>
-    )
+    );
 }
 
 export default Experience

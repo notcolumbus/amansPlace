@@ -13,6 +13,11 @@ body {
   font-style: normal;
   color: #fcecc9;
 }
+.footer-text {
+  font-family: "Rammetto One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
 .social-icon {
   font-size: 1.875rem;
