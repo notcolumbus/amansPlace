@@ -84,3 +84,8 @@ body {
   color: #1d2741;
 }
 
+.text-white,
+[class*="text-white"] {
+  color: #fcecc9 !important;
+}
+
