@@ -1,5 +1,6 @@
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
 
+
 function Research() {
     return (
         <div className="flex flex-col md:flex-row w-full gap-2 atkinson-hyperlegible-next-regular">
@@ -13,6 +14,7 @@ function Research() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10" />
                 <div className="absolute p-6 left-0 top-0 z-20 w-full">
                     <h2 className="text-4xl text-white drop-shadow-lg atkinson-hyperlegible-next-regular ">NASA RAM</h2>
+                    
                 </div>
                 <div className="absolute bottom-0 left-0 p-6 z-20 w-full">
                     <h1 className="text-xl text-white font-bold atkinson-hyperlegible-next-regular drop-shadow-lg">Advancing Regional Air Mobility in Appalachia</h1>

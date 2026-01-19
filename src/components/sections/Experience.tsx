@@ -78,7 +78,7 @@ function Experience() {
         <div className="md:grid md:grid-cols-3 gap-2">
             <JobCard
                 company="Knot API"
-                position="Incoming Software Developer Intern"
+                position="Incoming Developer Intern"
                 duration="May 2026 - Aug 2026"
                 logo={<KnotLogo />}
             />

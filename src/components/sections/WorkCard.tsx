@@ -26,14 +26,16 @@ function WorkCard({ title, subtitle, content, link, pictures, color, titleFontCl
             {isOpen ?
                 <motion.div layout className="fixed inset-0 z-50 p-8" style={{ backgroundColor: color }}>
                     <button
-                        className="fixed right-4 pr-10 text-6xl opacity-60 hover:opacity-70"
+                        className="fixed right-4 pr-10 text-4xl opacity-60 hover:opacity-70"
                         onClick={(e) => {
                             e.stopPropagation();
                             setOpen(false);
                         }}
                     >
-                        ×
+                        esc
+                    
                     </button>
+
 
                     <div className="h-full overflow-y-auto">
                         <div className="max-w-4xl mx-auto pt-12 pb-12 wrap-break-word">

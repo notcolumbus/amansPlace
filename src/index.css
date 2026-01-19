@@ -86,7 +86,7 @@ body {
 
 .text-white,
 [class*="text-white"] {
-  color: #fcecc9 !important;
+  color: #fcecc9;
 }
 
 .atkinson-hyperlegible-next-regular {
