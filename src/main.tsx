@@ -24,7 +24,7 @@ createRoot(document.getElementById('root')!).render(
 
   <div style={{position: 'fixed', bottom: 0, left: 0, right: 0, pointerEvents: 'none'}}>
     <GradualBlur
-      strength={3}
+      strength={2}
       divCount={1}
     />
   </div>

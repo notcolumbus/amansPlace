@@ -10,7 +10,6 @@ function Research() {
                     alt="NASA RAM"
                     className="absolute inset-0 opacity-50 w-full h-full object-cover"
                 />
-                <ProgressiveBlur position="bottom" height="70%" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10" />
                 <div className="absolute p-6 left-0 top-0 z-20 w-full">
                     <h2 className="text-4xl text-white drop-shadow-lg atkinson-hyperlegible-next-regular ">NASA RAM</h2>
@@ -29,7 +28,6 @@ function Research() {
                     playsInline
                     className="absolute inset-0 opacity-50 w-full h-full object-cover"
                 />
-                                <ProgressiveBlur position="bottom" height="70%" />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10" />
                 <div className="absolute p-6 left-0 top-0 z-20 w-full">
