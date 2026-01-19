@@ -1,4 +1,3 @@
-import { ProgressiveBlur } from "@/components/ui/progressive-blur";
 import { ComicText } from "@/components/ui/comic-text";
 
 function Dubs() {
@@ -42,7 +41,6 @@ function Dubs() {
                         alt={card.title}
                         className="absolute inset-0 w-full h-full object-cover"
                     />
-                    <ProgressiveBlur position="bottom" height="50%" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
                     <div className="absolute bottom-0 left-0 p-4 z-20 flex flex-col gap-1 items-start">
                         <ComicText fontSize={card.fontSize} className="text-left">{card.number}</ComicText>
