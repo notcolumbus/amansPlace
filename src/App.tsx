@@ -19,7 +19,7 @@ function HomePage() {
           <h2 className="rammetto-one-regular text-4xl text-white pt-12 pb-1">Work</h2>
           <h4 className="text-base text-white/80 pb-6 familjen-grotesk-regular">Click to expand :p</h4>
           <CardContainer />
-          <h3 className="text-white text-xl mt-6 familjen-grotesk-regular">
+          <h3 className="text-white text-xl mt-6 atkinson-hyperlegible-next-regular ">
             and more on my{" "}
             <LinkPreview
               url="https://github.com"

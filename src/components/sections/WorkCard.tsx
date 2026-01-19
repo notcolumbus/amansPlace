@@ -26,7 +26,7 @@ function WorkCard({ title, subtitle, content, link, pictures, color, titleFontCl
             {isOpen ?
                 <motion.div layout className="fixed inset-0 z-50 p-8" style={{ backgroundColor: color }}>
                     <button
-                        className="fixed right-4 pr-10 text-6xl  opacity-60 hover:opacity-70"
+                        className="fixed right-4 pr-10 text-6xl opacity-60 hover:opacity-70"
                         onClick={(e) => {
                             e.stopPropagation();
                             setOpen(false);
@@ -44,17 +44,17 @@ function WorkCard({ title, subtitle, content, link, pictures, color, titleFontCl
                                 className="pb-6 w-50 max-w-full h-auto"
                             />
 
-                            <motion.h1 layoutId={`title-${title}`} className={`text-5xl font-bold mb-2 ${titleFontClass}`}>{title}</motion.h1>
+                            <motion.h1 layoutId={`title-${title}`} className={`text-5xl font-bold mb-2 ${titleFontClass} `}>{title}</motion.h1>
 
-                            <h2 className="text-lg opacity-70 mb-6">{subtitle}</h2>
+                            <h2 className="text-lg opacity-70 mb-6 atkinson-hyperlegible-next-regular ">{subtitle}</h2>
 
-                            <p className="text-xl mb-6 wrap-break-words livvic-regular">{content}</p>
+                            <p className="text-xl mb-6 wrap-break-words atkinson-hyperlegible-next-regular opacity-80">{content}</p>
 
                             <a
                                 href={link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block px-6 py-3 bg-black/20 rounded-lg hover:bg-black/30"
+                                className="inline-block px-6 py-3 bg-black/20 rounded-lg hover:bg-black/30 atkinson-hyperlegible-next-regular "
                                 onClick={(e) => e.stopPropagation()}
                             >
                                 View Devpost

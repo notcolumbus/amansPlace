@@ -10,7 +10,7 @@ interface JobCardProps {
 
 function JobCard({ company, position, duration, logo, logoSrc }: JobCardProps) {
     return (
-        <div className="bg-amber-50 flex p-2 items-center min-w-0">
+        <div className=" flex p-2 items-center min-w-0" style={{backgroundColor:"#fcecc9"}}>
             {logo && <div className="pr-2">{logo}</div>}
             {logoSrc && <img className="w-16 h-16 object-contain" src={logoSrc} alt={`${company} logo`} />}
             

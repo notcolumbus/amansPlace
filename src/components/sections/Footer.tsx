@@ -27,7 +27,7 @@ function Footer() {
             <div className='text-5xl sm:text-6xl rammetto-one-regular font-bold -mt-8 sm:-mt-12'>
                 <SlotCounter value={views}/>
             </div>
-            <h3 className='text-white/80 text-center text-lg rammetto-one-regular'>views</h3>
+            <h3 className='text-center text-lg rammetto-one-regular'>views</h3>
 
         </div>
     )
