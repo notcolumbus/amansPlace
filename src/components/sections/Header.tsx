@@ -9,7 +9,7 @@ function Header() {
     return (
         <div className="pt-15">
             <h1 className="rammetto-one-regular text-5xl text-white">
-                Aman's Place
+                Aman Anwar
             </h1>
             <h2 className="text-xl pt-2 atkinson-hyperlegible-next-regular" style={{ color: '#fcecc9' }}>
 I’m a 2nd-year CS major at Virginia Tech. I love all things audio and currently lead a 5-person team on spatial audio research at VT. I’m an incoming SWE intern at Knot and a research intern at the IDOPT Lab on the NASA RAM project.</h2>
