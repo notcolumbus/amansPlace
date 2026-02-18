@@ -4,6 +4,8 @@ import { SiDevpost } from "react-icons/si";
 import { FaYoutube } from "react-icons/fa";
 import { RiTwitterXLine } from "react-icons/ri";
 import { RiInstagramFill } from "react-icons/ri";
+import resumePdf from "../../assets/resume.pdf";
+import cvPdf from "../../assets/cv.pdf";
 
 type CartoonLinkButtonProps = {
     label: string;
@@ -14,6 +16,8 @@ function CartoonLinkButton({ label, href }: CartoonLinkButtonProps) {
     return (
         <a
             href={href}
+            target="_blank"
+            rel="noopener noreferrer"
             className="atkinson-hyperlegible-next-bold inline-flex min-w-20 items-center justify-center rounded-full bg-[#fcecc9] px-4 py-1.5 text-sm text-[#2f4c66] no-underline shadow-[0_5px_0_0_#5f91ba] transition-all duration-150 hover:-translate-y-0.5 hover:bg-[#fff3d7] hover:shadow-[0_7px_0_0_#5f91ba] active:translate-y-[5px] active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fcecc9]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#7eb2dd]"
         >
             {label}
@@ -51,8 +55,8 @@ I’m a 2nd-year CS major at Virginia Tech. I love all things audio and currentl
                     </a>
                 </div>
                 <div className="ml-auto flex items-center gap-3">
-                    <CartoonLinkButton label="Resume" href="#" />
-                    <CartoonLinkButton label="CV" href="#" />
+                    <CartoonLinkButton label="Resume" href={resumePdf} />
+                    <CartoonLinkButton label="CV" href={cvPdf} />
                 </div>
             </div>
         </div>
