@@ -70,7 +70,7 @@ function WorkCard({ title, subtitle, content, link, pictures, color, titleFontCl
                                 className="inline-block px-6 py-3 bg-black/20 rounded-lg hover:bg-black/30 atkinson-hyperlegible-next-regular "
                                 onClick={(e) => e.stopPropagation()}
                             >
-                                View Devpost
+                                View Project
                             </a>
                             
                             {pictures[1] && (
