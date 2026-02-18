@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 function Research() {
   return (
     <div className="flex flex-col md:flex-row w-full gap-2 atkinson-hyperlegible-next-regular">
@@ -40,7 +42,7 @@ const ResearchCard = ({
   title: string;
   heading: string;
   description: string;
-  children: any;
+  children: ReactNode;
 }) => (
   <div className="relative overflow-hidden aspect-[3/4] sm:aspect-auto sm:h-64 md:h-72 lg:h-96 w-full md:flex-1 bg-[#2D2D2D]">
     {children}
@@ -71,4 +73,3 @@ const ResearchCard = ({
 );
 
 export default Research;
-

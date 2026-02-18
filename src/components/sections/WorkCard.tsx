@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type WorkCardProps = {
     title: string;
@@ -14,12 +14,21 @@ type WorkCardProps = {
 
 function WorkCard({ title, subtitle, content, link, pictures, color, titleFontClass = "", titleFontSize = 48 }: WorkCardProps) {
     const [isOpen, setOpen] = useState(false);
-    const handleEscape = (e:any) =>{
-        if (isOpen && e.key == "Escape"){
-            setOpen(false);
+
+    useEffect(() => {
+        if (!isOpen) {
+            return;
         }
-    }
-    document.addEventListener("keydown", handleEscape);
+
+        const handleEscape = (event: KeyboardEvent) => {
+            if (event.key === "Escape") {
+                setOpen(false);
+            }
+        };
+
+        document.addEventListener("keydown", handleEscape);
+        return () => document.removeEventListener("keydown", handleEscape);
+    }, [isOpen]);
 
     return (
         <motion.div>
@@ -44,6 +53,8 @@ function WorkCard({ title, subtitle, content, link, pictures, color, titleFontCl
                                 src={pictures[0]}
                                 alt={title}
                                 className="pb-6 w-50 max-w-full h-auto"
+                                loading="lazy"
+                                decoding="async"
                             />
 
                             <motion.h1 layoutId={`title-${title}`} className={`text-5xl font-bold mb-2 ${titleFontClass} `}>{title}</motion.h1>
@@ -67,7 +78,9 @@ function WorkCard({ title, subtitle, content, link, pictures, color, titleFontCl
                                     <img 
                                         src={pictures[1]} 
                                         alt={`${title} screenshot`} 
-                                        className="w-full h-auto rounded-xl shadow-lg" 
+                                        className="w-full h-auto rounded-xl shadow-lg"
+                                        loading="lazy"
+                                        decoding="async"
                                     />
                                 </div>
                             )}
@@ -76,7 +89,7 @@ function WorkCard({ title, subtitle, content, link, pictures, color, titleFontCl
                     </div>
                 </motion.div>
                 :
-                <motion.div layout className="aspect-2/3 sm:aspect-auto sm:h-64 md:h-72 lg:h-96 w-full p-6 flex flex-col justify-between" style={{ backgroundColor: color }} onClick={() => setOpen(!isOpen)}>
+                <motion.div layout className="aspect-2/3 sm:aspect-auto sm:h-64 md:h-72 lg:h-96 w-full p-6 flex flex-col justify-between" style={{ backgroundColor: color }} onClick={() => setOpen(true)}>
                     <motion.h1 
                         layoutId={`title-${title}`} 
                         className={`font-bold text-left ${titleFontClass}`}
@@ -89,7 +102,7 @@ function WorkCard({ title, subtitle, content, link, pictures, color, titleFontCl
                     >
                         {title}
                     </motion.h1>
-                    <motion.img layoutId={`icon-${title}`} src={pictures[0]} alt={title} className="w-43" />
+                    <motion.img layoutId={`icon-${title}`} src={pictures[0]} alt={title} className="w-43" loading="lazy" decoding="async" />
 
                 </motion.div>
             }

@@ -49,30 +49,26 @@ const KnotLogo = () => (
 
 function Experience() {
     const [isOpen, setOpen] = useState(false);
-    const [toShow, setShow] = useState(true);
     const [screenSize, setScreenSize] = useState(window.innerWidth);
-    
-    const handleResize = () => {
-        setScreenSize(window.innerWidth);
-    };
-  
-    const toggleShow = () => {
-        setOpen(!isOpen);
-    };
+    const isDesktop = screenSize >= 768;
+    const shouldShowExpanded = isDesktop || isOpen;
 
     useEffect(() => {
+        const handleResize = () => {
+            const width = window.innerWidth;
+            setScreenSize(width);
+            if (width >= 768) {
+                setOpen(false);
+            }
+        };
+
         window.addEventListener('resize', handleResize);
-        
-        if (screenSize >= 768) {
-            setShow(false);
-            setOpen(true);
-        } else {
-            setShow(true);
-            setOpen(false);
-        }
-        
         return () => window.removeEventListener('resize', handleResize);
-    }, [screenSize]);
+    }, []);
+
+    const toggleShow = () => {
+        setOpen((prev) => !prev);
+    };
 
     return (
         <div className="md:grid md:grid-cols-3 gap-2">
@@ -94,10 +90,10 @@ function Experience() {
                 company="VTHacks"
                 position="Technical Lead"
                 duration="Jan 2026 - Present"
-                logoSrc="https://vthacks.com/vthax_nav.svg"
+                logoSrc="https://sponsor.vthacks.com/assets/logo-D4qvTG0g.svg"
             />
 
-            {isOpen && (
+            {shouldShowExpanded && (
                 <>
                     <JobCard
                         company="Loopy Audio"
@@ -115,7 +111,7 @@ function Experience() {
                 </>
             )}
 
-            {toShow && (
+            {!isDesktop && (
                 <button onClick={toggleShow} className='text-white/90 md:hidden mt-1 atkinson-hyperlegible-next-regular '>
                     {isOpen ? 'Show Less' : 'Show More'}
                 </button>

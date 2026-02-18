@@ -29,6 +29,7 @@ body {
 .social-icon:hover {
   opacity: 0.8;
 }
+
 .luckiest-guy-regular {
   font-family: "Luckiest Guy", cursive;
   font-weight: 400;
@@ -102,4 +103,3 @@ body {
   font-weight: 700;
   font-style: normal;
 }
-

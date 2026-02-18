@@ -6,15 +6,33 @@ import { useEffect, useState } from 'react';
 
 function Footer() {
     const [views, setViews] = useState(0);
-    useEffect(()=>{
-        const viewsObj = async () => { 
-            const response = await fetch('https://abacus.jasoncameron.dev/hit/amananwar/key');
-            const data = await response.json();
-            const views = data.value;
-            setViews(views);
-         }
-         viewsObj();
-    },[])
+    useEffect(() => {
+        const controller = new AbortController();
+
+        const loadViews = async () => {
+            try {
+                const response = await fetch('https://abacus.jasoncameron.dev/hit/amananwar/key', {
+                    signal: controller.signal,
+                });
+
+                if (!response.ok) {
+                    return;
+                }
+
+                const data: { value?: number } = await response.json();
+                if (typeof data.value === 'number') {
+                    setViews(data.value);
+                }
+            } catch (error) {
+                if ((error as DOMException).name !== 'AbortError') {
+                    return;
+                }
+            }
+        };
+
+        void loadViews();
+        return () => controller.abort();
+    }, []);
     return (
         <div className='w-full mt-12 mb-12 flex flex-col items-center'>
             <div className='w-64 h-64 sm:w-80 sm:h-80'>
