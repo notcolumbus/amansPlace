@@ -18,7 +18,7 @@ function CartoonLinkButton({ label, href }: CartoonLinkButtonProps) {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="atkinson-hyperlegible-next-bold inline-flex min-w-20 items-center justify-center rounded-full bg-[#fcecc9] px-4 py-1.5 text-sm text-[#2f4c66] no-underline shadow-[0_5px_0_0_#5f91ba] transition-all duration-150 hover:-translate-y-0.5 hover:bg-[#fff3d7] hover:shadow-[0_7px_0_0_#5f91ba] active:translate-y-[5px] active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fcecc9]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#7eb2dd]"
+            className="atkinson-hyperlegible-next-bold inline-flex min-w-[6.75rem] sm:min-w-28 items-center justify-center rounded-full bg-[#fcecc9] px-4 sm:px-6 py-1.5 sm:py-2 text-sm sm:text-base text-[#2f4c66] no-underline shadow-[0_4px_0_0_#5f91ba] sm:shadow-[0_5px_0_0_#5f91ba] transition-all duration-150 hover:-translate-y-0.5 hover:bg-[#fff3d7] hover:shadow-[0_6px_0_0_#5f91ba] sm:hover:shadow-[0_7px_0_0_#5f91ba] active:translate-y-[4px] sm:active:translate-y-[5px] active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fcecc9]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#7eb2dd]"
         >
             {label}
         </a>
@@ -33,8 +33,8 @@ function Header() {
             </h1>
             <h2 className="text-xl pt-2 atkinson-hyperlegible-next-regular" style={{ color: '#fcecc9' }}>
 I’m a 2nd-year CS major at Virginia Tech. I love all things audio and currently lead a 5-person team on spatial audio research at VT. I’m an incoming SWE intern at Knot and a research intern at the IDOPT Lab on the NASA RAM project.</h2>
-            <div className="flex items-center justify-between gap-4 pt-6">
-                <div className="flex items-center gap-4">
+            <div className="flex flex-col gap-3 pt-6 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex flex-wrap items-center gap-3 sm:gap-4">
                     <a href="https://www.linkedin.com/in/aman-anwar-/" target="_blank" rel="noopener noreferrer">
                         <FaLinkedinIn className="social-icon" />
                     </a>
@@ -54,7 +54,7 @@ I’m a 2nd-year CS major at Virginia Tech. I love all things audio and currentl
                         <RiInstagramFill className="social-icon" />
                     </a>
                 </div>
-                <div className="ml-auto flex items-center gap-3">
+                <div className="flex items-center gap-2 self-start sm:ml-auto sm:gap-3 sm:self-auto">
                     <CartoonLinkButton label="Resume" href={resumePdf} />
                     <CartoonLinkButton label="CV" href={cvPdf} />
                 </div>
