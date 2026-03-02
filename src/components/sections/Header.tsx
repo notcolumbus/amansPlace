@@ -36,8 +36,8 @@ function Header() {
                     </a>
                 </div>
                 <div className="flex items-center gap-2 self-start sm:ml-auto sm:gap-3 sm:self-auto">
-                    <LinkPreview url="https://www.amans.place/assets/resume-CS4KMHUr.pdf"><h1 className="text-lg pt-2 atkinson-hyperlegible-next-regular" style={{ color: '#fcecc9' }}>Resume</h1></LinkPreview>
-                    <LinkPreview url="https://www.amans.place/assets/cv-BeZ9rApc.pdf"><h1 className="text-lg pt-2 atkinson-hyperlegible-next-regular" style={{ color: '#fcecc9' }}>CV</h1></LinkPreview>
+                    <LinkPreview url="https://ik.imagekit.io/sjuopypj1/aman%20resume%20(2).pdf"><h1 className="text-lg pt-2 atkinson-hyperlegible-next-regular" style={{ color: '#fcecc9' }}>Resume</h1></LinkPreview>
+                    <LinkPreview url="https://ik.imagekit.io/sjuopypj1/amans_cv%20(1).pdf"><h1 className="text-lg pt-2 atkinson-hyperlegible-next-regular" style={{ color: '#fcecc9' }}>CV</h1></LinkPreview>
                 </div>
             </div>
         </div>
