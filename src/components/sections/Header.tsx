@@ -6,6 +6,7 @@ import { RiTwitterXLine } from "react-icons/ri";
 import { RiInstagramFill } from "react-icons/ri";
 import resumePdf from "../../assets/resume.pdf";
 import cvPdf from "../../assets/cv.pdf";
+import { LinkPreview } from "../ui/link-preview";
 
 type CartoonLinkButtonProps = {
     label: string;
@@ -32,7 +33,7 @@ function Header() {
                 Aman Anwar
             </h1>
             <h2 className="text-xl pt-2 atkinson-hyperlegible-next-regular" style={{ color: '#fcecc9' }}>
-I’m a 2nd-year CS major at Virginia Tech. I love all things audio and currently lead a 5-person team on spatial audio research at VT. I’m an incoming SWE intern at Knot and a research intern at the IDOPT Lab on the NASA RAM project.</h2>
+                I’m a 2nd-year CS major at Virginia Tech. I love all things audio and currently lead a 5-person team on spatial audio research at VT. I’m an incoming SWE intern at Knot and a research intern at the IDOPT Lab on the NASA RAM project.</h2>
             <div className="flex flex-col gap-3 pt-6 sm:flex-row sm:items-center sm:justify-between">
                 <div className="flex flex-wrap items-center gap-3 sm:gap-4">
                     <a href="https://www.linkedin.com/in/aman-anwar-/" target="_blank" rel="noopener noreferrer">
@@ -55,8 +56,8 @@ I’m a 2nd-year CS major at Virginia Tech. I love all things audio and currentl
                     </a>
                 </div>
                 <div className="flex items-center gap-2 self-start sm:ml-auto sm:gap-3 sm:self-auto">
-                    <CartoonLinkButton label="Resume" href={resumePdf} />
-                    <CartoonLinkButton label="CV" href={cvPdf} />
+                    <LinkPreview url={resumePdf}><h1 className="text-lg pt-2 atkinson-hyperlegible-next-regular" style={{ color: '#fcecc9' }}>Resume</h1></LinkPreview>
+                    <LinkPreview url={cvPdf}><h1 className="text-lg pt-2 atkinson-hyperlegible-next-regular" style={{ color: '#fcecc9' }}>CV</h1></LinkPreview>
                 </div>
             </div>
         </div>
