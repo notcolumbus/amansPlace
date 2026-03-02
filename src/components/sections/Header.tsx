@@ -8,24 +8,6 @@ import resumePdf from "../../assets/resume.pdf";
 import cvPdf from "../../assets/cv.pdf";
 import { LinkPreview } from "../ui/link-preview";
 
-type CartoonLinkButtonProps = {
-    label: string;
-    href: string;
-};
-
-function CartoonLinkButton({ label, href }: CartoonLinkButtonProps) {
-    return (
-        <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="atkinson-hyperlegible-next-bold inline-flex min-w-[6.75rem] sm:min-w-28 items-center justify-center rounded-full bg-[#fcecc9] px-4 sm:px-6 py-1.5 sm:py-2 text-sm sm:text-base text-[#2f4c66] no-underline shadow-[0_6px_0_0_#5f91ba] transition-all duration-150 hover:-translate-y-0.5 hover:bg-[#fff3d7] hover:shadow-[0_7px_0_0_#5f91ba] active:translate-y-[6px] active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fcecc9]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#7eb2dd]"
-        >
-            {label}
-        </a>
-    );
-}
-
 function Header() {
     return (
         <div className="pt-15">
