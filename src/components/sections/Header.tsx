@@ -4,8 +4,6 @@ import { SiDevpost } from "react-icons/si";
 import { FaYoutube } from "react-icons/fa";
 import { RiTwitterXLine } from "react-icons/ri";
 import { RiInstagramFill } from "react-icons/ri";
-import resumePdf from "../../assets/resume.pdf";
-import cvPdf from "../../assets/cv.pdf";
 import { LinkPreview } from "../ui/link-preview";
 
 function Header() {
