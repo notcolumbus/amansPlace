@@ -14,10 +14,17 @@ function Navbar() {
   const currentPage = pages.find(p => p.path === location.pathname) || pages[0];
   const otherPages = pages.filter(p => p.path !== location.pathname);
   const [open, setOpen] = useState(false);
+  const [shimmer, setShimmer] = useState<'idle' | 'playing' | 'done'>('idle');
 
   const hc = `rammetto-one-regular ${currentPage.headingClass}`;
 
   useEffect(() => { setOpen(false); }, [location.pathname]);
+
+  useEffect(() => {
+    const t = setTimeout(() => setShimmer('playing'), 500);
+    const t2 = setTimeout(() => setShimmer('done'), 2000);
+    return () => { clearTimeout(t); clearTimeout(t2); };
+  }, []);
 
   return (
     <div className="relative pt-15 flex items-baseline flex-wrap gap-4">
@@ -60,15 +67,32 @@ function Navbar() {
       </h1>
 
       <span className="hidden lg:inline-flex gap-3 align-baseline">
-        {otherPages.map(page => (
-          <Link
-            key={page.path}
-            to={page.path}
-            className={`${hc} text-lg sm:text-xl md:text-2xl opacity-80 hover:opacity-100 transition-opacity duration-200`}
-          >
-            {page.label}
-          </Link>
-        ))}
+        {(() => {
+          let charIndex = 0;
+          return otherPages.map(page => (
+            <Link
+              key={page.path}
+              to={page.path}
+              className={`${hc} text-lg sm:text-xl md:text-2xl opacity-80 hover:opacity-100 transition-opacity duration-200`}
+            >
+              {page.label.split('').map((char, i) => {
+                const delay = charIndex * 0.04;
+                charIndex++;
+                return (
+                  <span
+                    key={i}
+                    className="inline-block"
+                    style={shimmer === 'playing' ? {
+                      animation: `nav-elastic 0.5s cubic-bezier(0.25, 1.5, 0.5, 1) ${delay}s both`,
+                    } : undefined}
+                  >
+                    {char}
+                  </span>
+                );
+              })}
+            </Link>
+          ));
+        })()}
       </span>
     </div>
   );
