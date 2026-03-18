@@ -5,14 +5,18 @@ import CameraPage from './components/pages/CameraPage';
 
 function App() {
   return (
-    <div className="min-h-screen p-4 sm:p-8 md:p-15">
-      <main>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/photos" element={<CameraPage />} />
-        </Routes>
-      </main>
+    <div className="min-h-screen p-2 sm:p-4 md:p-6">
+      <div className="md:grid md:grid-cols-5">
+        <div className="col-span-1" />
+        <main className="col-span-3">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/photos" element={<CameraPage />} />
+          </Routes>
+        </main>
+        <div className="col-span-1" />
+      </div>
     </div>
   )
 }
