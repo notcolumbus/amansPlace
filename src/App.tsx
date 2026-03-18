@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomePage from './components/pages/HomePage';
 import CameraPage from './components/pages/CameraPage';
+import ArtPage from './components/pages/ArtPage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/photos" element={<CameraPage />} />
+            <Route path="/art" element={<ArtPage />} />
           </Routes>
         </main>
         <div className="col-span-1" />

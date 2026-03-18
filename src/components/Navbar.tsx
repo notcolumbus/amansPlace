@@ -4,6 +4,7 @@ import { TextMorph } from 'torph/react';
 const pages = [
   { path: '/', title: "Aman's Place", label: "Place" },
   { path: '/photos', title: "Aman's Photos", label: "Photos" },
+  { path: '/art', title: "Aman's Art", label: "Art" },
 ];
 
 function Navbar() {
