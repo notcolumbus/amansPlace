@@ -9,7 +9,7 @@ import { LinkPreview } from "../ui/link-preview";
 function Header() {
     return (
         <div className="pt-4">
-            <h2 className="text-xl pt-2 atkinson-hyperlegible-next-regular text-white">
+            <h2 className="text-xl atkinson-hyperlegible-next-regular text-white">
                 Hi, I'm Aman! Idk what I specifically do yet but I like making cool things. This page is my canvas, and I've painted it how I like! Check it out! </h2>
             <div className="flex flex-col gap-3 pt-6 sm:flex-row sm:items-center sm:justify-between">
                 <div className="flex flex-wrap items-center gap-3 sm:gap-4">
