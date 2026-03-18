@@ -12,7 +12,7 @@ function Header() {
             <h1 className="rammetto-one-regular text-5xl text-white">
                 Aman Anwar
             </h1>
-            <h2 className="text-xl pt-2 atkinson-hyperlegible-next-regular" style={{ color: '#fcecc9' }}>
+            <h2 className="text-xl pt-2 atkinson-hyperlegible-next-regular text-white">
                 I’m a 2nd-year CS major at Virginia Tech. I love all things audio and currently lead a 5-person team on spatial audio research at VT. I’m an incoming SWE intern at Knot and a research intern at the IDOPT Lab on the NASA RAM project.</h2>
             <div className="flex flex-col gap-3 pt-6 sm:flex-row sm:items-center sm:justify-between">
                 <div className="flex flex-wrap items-center gap-3 sm:gap-4">
@@ -36,8 +36,8 @@ function Header() {
                     </a>
                 </div>
                 <div className="flex items-center gap-2 self-start sm:ml-auto sm:gap-3 sm:self-auto">
-                    <LinkPreview url="https://ik.imagekit.io/sjuopypj1/aman%20resume%20(2).pdf"><h1 className="text-lg pt-2 atkinson-hyperlegible-next-regular" style={{ color: '#fcecc9' }}>Resume</h1></LinkPreview>
-                    <LinkPreview url="https://ik.imagekit.io/sjuopypj1/amans_cv%20(1).pdf"><h1 className="text-lg pt-2 atkinson-hyperlegible-next-regular" style={{ color: '#fcecc9' }}>CV</h1></LinkPreview>
+                    <LinkPreview url="https://ik.imagekit.io/sjuopypj1/aman%20resume%20(2).pdf"><span className="text-lg pt-2 atkinson-hyperlegible-next-regular text-white">Resume</span></LinkPreview>
+                    <LinkPreview url="https://ik.imagekit.io/sjuopypj1/amans_cv%20(1).pdf"><span className="text-lg pt-2 atkinson-hyperlegible-next-regular text-white">CV</span></LinkPreview>
                 </div>
             </div>
         </div>

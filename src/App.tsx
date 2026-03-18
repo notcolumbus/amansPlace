@@ -1,11 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
-import Header from "./components/sections/Header";
-import CardContainer from './components/sections/CardContainer';
-import Experience from './components/sections/Experience';
+import Header from "./components/homeSections/Header";
+import CardContainer from './components/homeSections/CardContainer';
+import Experience from './components/homeSections/Experience';
 import { LinkPreview } from './components/ui/link-preview';
-import Research from './components/sections/Research';
-import Dubs from './components/sections/Dubs';
-import Footer from './components/sections/Footer';
+import Research from './components/homeSections/Research';
+import Dubs from './components/homeSections/Dubs';
+import Footer from './components/homeSections/Footer';
 
 function HomePage() {
   return (
@@ -48,10 +48,25 @@ function HomePage() {
 }
 
 
+function CameraPage() {
+  return (
+    <div className="min-h-screen p-2 sm:p-4 md:p-6">
+      <div className="md:grid md:grid-cols-5">
+        <div className="col-span-1" />
+        <main className="col-span-3">
+          <h1 className="rammetto-one-regular text-5xl text-white pt-15">Camera</h1>
+        </main>
+        <div className="col-span-1" />
+      </div>
+    </div>
+  )
+}
+
 function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/camera" element={<CameraPage />} />
     </Routes>
   )
 }
