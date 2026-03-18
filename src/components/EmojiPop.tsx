@@ -45,7 +45,7 @@ function EmojiPop({ emoji, count = 8, children }: EmojiPopProps) {
   }, [emoji, count]);
 
   return (
-    <span ref={containerRef} onClick={pop} style={{ position: 'relative', cursor: 'pointer' }}>
+    <span ref={containerRef} onMouseEnter={pop} className="relative opacity-80">
       {children}
     </span>
   );

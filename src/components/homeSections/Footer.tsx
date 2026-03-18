@@ -11,7 +11,6 @@ function Footer() {
 
         const loadViews = async () => {
             try {
-                //TODO: Change this to my own abacus key
                 const response = await fetch('https://abacus.jasoncameron.dev/hit/amananwar/key', {
                     signal: controller.signal,
                 });
