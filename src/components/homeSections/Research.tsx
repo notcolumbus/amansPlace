@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 function Research() {
   return (
-    <div className="flex flex-col md:flex-row w-full gap-2 atkinson-hyperlegible-next-regular">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 atkinson-hyperlegible-next-regular">
       <ResearchCard
         title="NASA RAM"
         heading="Advancing Regional Air Mobility in Appalachia"
@@ -44,7 +44,7 @@ const ResearchCard = ({
   description: string;
   children: ReactNode;
 }) => (
-  <div className="relative overflow-hidden aspect-[3/4] sm:aspect-auto sm:h-64 md:h-72 lg:h-96 w-full md:flex-1 bg-[#2D2D2D]">
+  <div className="relative overflow-hidden aspect-[3/4] sm:aspect-auto sm:h-64 md:h-72 lg:h-96 bg-[#2D2D2D]">
     {children}
     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10" />
     <div className="absolute p-6 left-0 top-0 z-20 w-full">

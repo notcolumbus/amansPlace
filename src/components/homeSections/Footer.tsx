@@ -43,10 +43,10 @@ function Footer() {
                     stateMachines="State Machine 1"
                 />
             </div>
-            <div className='text-5xl sm:text-6xl rammetto-one-regular font-bold -mt-8 sm:-mt-12'>
+            <div className='text-5xl sm:text-6xl rammetto-one-regular offwhite font-bold -mt-8 sm:-mt-12'>
                 <SlotCounter value={views} />
             </div>
-            <h3 className='text-center text-lg rammetto-one-regular'>views</h3>
+            <h3 className='text-center text-lg rammetto-one-regular offwhite'>views</h3>
 
         </div>
     )

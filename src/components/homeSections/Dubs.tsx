@@ -33,9 +33,9 @@ function Dubs() {
     ];
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full atkinson-hyperlegible-next-regular">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full atkinson-hyperlegible-next-regular">
             {cardData.map((card, idx) => (
-                <div key={idx} className="relative overflow-hidden aspect-[3/4] sm:aspect-video md:aspect-[4/3]">
+                <div key={idx} className="relative overflow-hidden aspect-[3/4] sm:aspect-video">
                     <img
                         src={card.img}
                         alt={card.title}

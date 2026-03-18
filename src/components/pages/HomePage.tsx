@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import Header from "../homeSections/Header";
 import CardContainer from '../homeSections/CardContainer';
 import Experience from '../homeSections/Experience';
@@ -10,11 +9,10 @@ import Footer from '../homeSections/Footer';
 function HomePage() {
   return (
     <>
-      <Link to="/photos" className="text-white underline atkinson-hyperlegible-next-regular">Go to Photos</Link>
       <Header />
-      <h2 className="rammetto-one-regular text-4xl text-white pt-12 pb-6">Teams</h2>
+      <h2 className="rammetto-one-regular offwhite text-4xl pt-12 pb-6">Teams</h2>
       <Experience />
-      <h2 className="rammetto-one-regular text-4xl text-white pt-12 pb-1">Work</h2>
+      <h2 className="rammetto-one-regular offwhite text-4xl pt-12 pb-1">Work</h2>
       <h4 className="text-base text-white/80 pb-6 familjen-grotesk-regular">Click to expand :p</h4>
       <CardContainer />
       <h3 className="text-white text-xl mt-6 atkinson-hyperlegible-next-regular ">
@@ -33,9 +31,9 @@ function HomePage() {
           devpost
         </LinkPreview>!
       </h3>
-      <h2 className="rammetto-one-regular text-4xl text-white pt-12 pb-6">Research</h2>
+      <h2 className="rammetto-one-regular offwhite text-4xl pt-12 pb-6">Research</h2>
       <Research />
-      <h2 className="rammetto-one-regular text-4xl text-white pt-12 pb-6">Awards</h2>
+      <h2 className="rammetto-one-regular offwhite text-4xl pt-12 pb-6">Awards</h2>
       <Dubs></Dubs>
       <Footer />
     </>
