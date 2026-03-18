@@ -28,18 +28,17 @@ function EmojiPop({ emoji, count = 8, children }: EmojiPopProps) {
       `;
       containerRef.current?.appendChild(el);
 
-      const angle = Math.random() * Math.PI * 2;
-      const velocity = 60 + Math.random() * 80;
-      const dx = Math.cos(angle) * velocity;
-      const dy = Math.sin(angle) * velocity - 40;
-      const rotation = (Math.random() - 0.5) * 720;
+      const dx = (Math.random() - 0.5) * 120;
+      const fallDistance = 150 + Math.random() * 200;
+      const rotation = (Math.random() - 0.5) * 360;
 
       el.animate(
         [
           { transform: 'translate(0, 0) rotate(0deg) scale(1)', opacity: 1 },
-          { transform: `translate(${dx}px, ${dy + 120}px) rotate(${rotation}deg) scale(0)`, opacity: 0 },
+          { transform: `translate(${dx * 0.3}px, ${fallDistance * 0.2}px) rotate(${rotation * 0.3}deg) scale(1)`, opacity: 1, offset: 0.2 },
+          { transform: `translate(${dx}px, ${fallDistance}px) rotate(${rotation}deg) scale(0.8)`, opacity: 0 },
         ],
-        { duration: 600 + Math.random() * 400, easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' }
+        { duration: 800 + Math.random() * 400, easing: 'cubic-bezier(0.55, 0, 0.67, 0.81)' }
       ).onfinish = () => el.remove();
     }
   }, [emoji, count]);
