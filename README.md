@@ -1,3 +1,3 @@
 # Aman's Place
 
-My very cool non vibecoded website.
+My very cool website.
