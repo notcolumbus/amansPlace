@@ -8,8 +8,12 @@ interface EmojiPopProps {
 
 function EmojiPop({ emoji, count = 8, children }: EmojiPopProps) {
   const containerRef = useRef<HTMLSpanElement>(null);
+  const throttled = useRef(false);
 
   const pop = useCallback((e: React.MouseEvent) => {
+    if (throttled.current) return;
+    throttled.current = true;
+    setTimeout(() => { throttled.current = false; }, 500);
     const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;

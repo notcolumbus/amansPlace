@@ -1,6 +1,6 @@
+import { useEffect, useState } from 'react';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { TextMorph } from 'torph/react';
-import { useState } from 'react';
 
 export const pages = [
   { path: '/', title: "Aman's Place", label: "Place", bg: '#7eb2dd', headingClass: 'offwhite' },
@@ -15,52 +15,61 @@ function Navbar() {
   const otherPages = pages.filter(p => p.path !== location.pathname);
   const [open, setOpen] = useState(false);
 
+  const hc = `rammetto-one-regular ${currentPage.headingClass}`;
+
+  useEffect(() => { setOpen(false); }, [location.pathname]);
+
   return (
     <div className="relative pt-15 flex items-baseline flex-wrap gap-4">
-      <TextMorph
-        as="h1"
-        className={`rammetto-one-regular ${currentPage.headingClass} text-3xl sm:text-4xl md:text-5xl inline`}
-      >
-        {currentPage.title}
-      </TextMorph>
+      <h1 className={`${hc} text-3xl sm:text-4xl md:text-5xl inline`}>
+        <TextMorph as="span" className={hc}>
+          {"Aman's "}
+        </TextMorph>
 
-      {/* Desktop: inline links */}
-      <span className="hidden sm:inline-flex gap-3 align-baseline">
+        <span className="hidden lg:inline">
+          <TextMorph as="span" className={hc}>{currentPage.label}</TextMorph>
+        </span>
+
+        <span className="relative lg:hidden">
+          <button
+            onClick={() => setOpen(o => !o)}
+            className={`${hc} text-4xl border-b-2 border-dotted border-current inline-flex items-center gap-1`}
+          >
+            <TextMorph as="span" className={hc}>{currentPage.label}</TextMorph>
+            <span className={`text-lg inline-block transition-transform duration-200 ${open ? 'rotate-180' : ''}`}>▾</span>
+          </button>
+          {open && (
+            <div className="fixed inset-0 z-50 backdrop-blur-xl bg-black/20 flex flex-col" onClick={() => setOpen(false)}>
+              <div className="flex-1 flex items-center justify-center">
+                <span className={`${hc} text-5xl`}>Aman's ?</span>
+              </div>
+              <div className="flex-1 flex flex-col items-center justify-center gap-6">
+                {pages.map(page => (
+                  <button
+                    key={page.path}
+                    onClick={() => { setOpen(false); navigate(page.path); }}
+                    className={`${hc} text-4xl transition-opacity duration-200 ${page.path === location.pathname ? 'opacity-100' : 'opacity-50 hover:opacity-100'}`}
+                  >
+                    {page.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+        </span>
+      </h1>
+
+      <span className="hidden lg:inline-flex gap-3 align-baseline">
         {otherPages.map(page => (
           <Link
             key={page.path}
             to={page.path}
-            className={`rammetto-one-regular ${currentPage.headingClass} text-lg sm:text-xl md:text-2xl opacity-80 hover:opacity-100 transition-opacity duration-200`}
+            className={`${hc} text-lg sm:text-xl md:text-2xl opacity-80 hover:opacity-100 transition-opacity duration-200`}
           >
             {page.label}
           </Link>
         ))}
       </span>
-
-      {/* Mobile: dropdown */}
-      <div className="relative sm:hidden">
-        <button
-          onClick={() => setOpen(o => !o)}
-          className={`rammetto-one-regular ${currentPage.headingClass} text-xl opacity-80`}
-          aria-label="Navigate to other pages"
-        >
-          ☰
-        </button>
-        {open && (
-          <div className="absolute left-0 top-full mt-2 flex flex-col gap-1 rounded-xl shadow-lg overflow-hidden z-50"
-            style={{ background: currentPage.bg }}>
-            {otherPages.map(page => (
-              <button
-                key={page.path}
-                onClick={() => { setOpen(false); navigate(page.path); }}
-                className={`rammetto-one-regular ${currentPage.headingClass} text-lg px-5 py-2 text-left opacity-80 hover:opacity-100 transition-opacity duration-200`}
-              >
-                {page.label}
-              </button>
-            ))}
-          </div>
-        )}
-      </div>
     </div>
   );
 }
