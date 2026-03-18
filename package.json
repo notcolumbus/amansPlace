@@ -22,7 +22,7 @@
     "gsap": "^3.14.2",
     "lucide-react": "^0.562.0",
     "mathjs": "^14.9.1",
-    "motion": "^12.24.10",
+    "motion": "^12.38.0",
     "qss": "^3.0.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
@@ -31,7 +31,8 @@
     "react-router-dom": "^7.11.0",
     "react-slot-counter": "^3.3.2",
     "tailwind-merge": "^3.4.0",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.1.18",
+    "torph": "^0.0.9"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

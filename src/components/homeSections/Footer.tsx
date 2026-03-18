@@ -11,7 +11,8 @@ function Footer() {
 
         const loadViews = async () => {
             try {
-                const response = await fetch('https://abacus.jasoncameron.dev/hit/amananwar/key', {
+                //TODO: Change this to my own abacus key
+                const response = await fetch('https://abacus.jasoncameron.dev/hit/amananwanr/key', {
                     signal: controller.signal,
                 });
 
@@ -43,7 +44,7 @@ function Footer() {
                 />
             </div>
             <div className='text-5xl sm:text-6xl rammetto-one-regular font-bold -mt-8 sm:-mt-12'>
-                <SlotCounter value={views}/>
+                <SlotCounter value={views} />
             </div>
             <h3 className='text-center text-lg rammetto-one-regular'>views</h3>
 

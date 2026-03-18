@@ -8,12 +8,9 @@ import { LinkPreview } from "../ui/link-preview";
 
 function Header() {
     return (
-        <div className="pt-15">
-            <h1 className="rammetto-one-regular text-5xl text-white">
-                Aman Anwar
-            </h1>
+        <div className="pt-4">
             <h2 className="text-xl pt-2 atkinson-hyperlegible-next-regular text-white">
-                I’m a 2nd-year CS major at Virginia Tech. I love all things audio and currently lead a 5-person team on spatial audio research at VT. I’m an incoming SWE intern at Knot and a research intern at the IDOPT Lab on the NASA RAM project.</h2>
+                Hi, I'm Aman! Idk what I specifically do yet but I like making cool things. This page is my canvas, and I've painted it how I like! Check it out! </h2>
             <div className="flex flex-col gap-3 pt-6 sm:flex-row sm:items-center sm:justify-between">
                 <div className="flex flex-wrap items-center gap-3 sm:gap-4">
                     <a href="https://www.linkedin.com/in/aman-anwar-/" target="_blank" rel="noopener noreferrer">
