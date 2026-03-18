@@ -14,7 +14,7 @@ createRoot(document.getElementById('root')!).render(
       </BrowserRouter>
     </div>
 
-    <div style={{ position: 'fixed', bottom: 0, left: 0, right: 0, pointerEvents: 'none' }}>
+    <div className="hidden sm:block" style={{ position: 'fixed', bottom: 0, left: 0, right: 0, pointerEvents: 'none' }}>
       <GradualBlur
         strength={2}
         divCount={1}
