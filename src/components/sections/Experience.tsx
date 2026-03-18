@@ -88,7 +88,7 @@ function Experience() {
             
             <JobCard
                 company="VTHacks"
-                position="Technical Lead"
+                position="Tech Lead"
                 duration="Jan 2026 - Present"
                 logoSrc="https://sponsor.vthacks.com/assets/logo-D4qvTG0g.svg"
             />
