@@ -31,9 +31,9 @@ function WorkCard({ title, subtitle, content, link, pictures, color, titleFontCl
     }, [isOpen]);
 
     return (
-        <motion.div>
+        <motion.div layout transition={{ layout: { duration: 0.3, ease: 'easeOut' } }}>
             {isOpen ?
-                <motion.div layout className="fixed inset-0 z-50 p-8" style={{ backgroundColor: color }}>
+                <motion.div layout transition={{ layout: { duration: 0.3, ease: 'easeOut' } }} className="fixed inset-0 z-50 p-8" style={{ backgroundColor: color }}>
                     <button
                         className="fixed right-4 pr-10 text-4xl opacity-60 hover:opacity-70"
                         onClick={(e) => {
@@ -89,7 +89,7 @@ function WorkCard({ title, subtitle, content, link, pictures, color, titleFontCl
                     </div>
                 </motion.div>
                 :
-                <motion.div layout className="aspect-2/3 sm:aspect-auto sm:h-64 md:h-72 lg:h-96 w-full p-6 flex flex-col justify-between" style={{ backgroundColor: color }} onClick={() => setOpen(true)}>
+                <motion.div layout whileHover={{ scale: 0.97 }} transition={{ type: 'spring', stiffness: 400, damping: 20 }} className="aspect-2/3 sm:aspect-auto sm:h-64 md:h-72 lg:h-96 w-full p-6 flex flex-col justify-between cursor-pointer" style={{ backgroundColor: color }} onClick={() => setOpen(true)}>
                     <motion.h1 
                         layoutId={`title-${title}`} 
                         className={`font-bold text-left ${titleFontClass}`}
