@@ -22,7 +22,7 @@ function Navbar() {
     >
       <TextMorph
         as="h1"
-        className="rammetto-one-regular offwhite text-5xl cursor-pointer inline"
+        className="rammetto-one-regular offwhite text-3xl sm:text-4xl md:text-5xl cursor-pointer inline"
       >
         {currentTitle}
       </TextMorph>
@@ -39,7 +39,7 @@ function Navbar() {
               <Link
                 key={page.path}
                 to={page.path}
-                className="rammetto-one-regular offwhite text-2xl opacity-80 hover:opacity-100 transition-opacity duration-200"
+                className="rammetto-one-regular offwhite text-lg sm:text-xl md:text-2xl opacity-80 hover:opacity-100 transition-opacity duration-200"
               >
                 {page.label}
               </Link>
