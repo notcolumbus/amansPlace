@@ -21,7 +21,7 @@ function Footer() {
 
                 const data: { value?: number } = await response.json();
                 if (typeof data.value === 'number') {
-                    setViews(data.value);
+                    setViews(data.value - 200);
                 }
             } catch (error) {
                 if ((error as DOMException).name !== 'AbortError') {
