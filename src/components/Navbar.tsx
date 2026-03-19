@@ -36,11 +36,7 @@ function Navbar() {
         </TextMorph>
 
         {/* Desktop: morphs between current label and "?" on hover */}
-        <span
-          className="hidden lg:inline"
-          onMouseEnter={() => setHovering(true)}
-          onMouseLeave={() => setHovering(false)}
-        >
+        <span className="hidden lg:inline">
           <TextMorph as="span" className={hc}>
             {hovering ? '?' : currentPage.label}
           </TextMorph>
