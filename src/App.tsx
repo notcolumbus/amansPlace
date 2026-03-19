@@ -19,7 +19,7 @@ function App() {
         <div className="col-span-1" />
         <main className="col-span-3">
           <Navbar />
-          <Routes key={location.pathname}>
+          <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/photos" element={<CameraPage />} />
             <Route path="/art" element={<ArtPage />} />
