@@ -1,4 +1,4 @@
-import { useMemo, useEffect, useRef, useState } from 'react';
+import { useMemo, useEffect, useRef, useState, useCallback } from 'react';
 
 interface Item {
   id: string;
@@ -28,6 +28,52 @@ const useColumns = () => {
   }, []);
 
   return cols;
+};
+
+const shimmerStyle = `
+@keyframes masonry-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+`;
+
+const MasonryImage: React.FC<{ src: string }> = ({ src }) => {
+  const [loaded, setLoaded] = useState(false);
+
+  const onLoad = useCallback(() => setLoaded(true), []);
+
+  return (
+    <>
+      {!loaded && (
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            borderRadius: '0px',
+            background: 'linear-gradient(90deg, rgba(0,0,0,0.06) 25%, rgba(0,0,0,0.12) 50%, rgba(0,0,0,0.06) 75%)',
+            backgroundSize: '200% 100%',
+            animation: 'masonry-shimmer 1.5s ease-in-out infinite',
+          }}
+        />
+      )}
+      <img
+        src={src}
+        alt=""
+        loading="lazy"
+        onLoad={onLoad}
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          display: 'block',
+          borderRadius: '0px',
+          boxShadow: '0 8px 30px -10px rgba(0,0,0,0.2)',
+          opacity: loaded ? 1 : 0,
+          transition: 'opacity 0.4s ease',
+        }}
+      />
+    </>
+  );
 };
 
 const Masonry: React.FC<MasonryProps> = ({ items }) => {
@@ -70,43 +116,36 @@ const Masonry: React.FC<MasonryProps> = ({ items }) => {
   }, [positioned]);
 
   return (
-    <div
-      ref={containerRef}
-      style={{
-        position: 'relative',
-        width: '100%',
-        height: totalHeight,
-        padding: '0 4px',
-      }}
-    >
-      {positioned.map((item) => (
-        <div
-          key={item.id}
-          style={{
-            position: 'absolute',
-            left: item.x,
-            top: item.y,
-            width: item.w,
-            height: item.h,
-            padding: '2px',
-          }}
-        >
-          <img
-            src={item.img}
-            alt=""
-            loading="lazy"
+    <>
+      <style>{shimmerStyle}</style>
+      <div
+        ref={containerRef}
+        style={{
+          position: 'relative',
+          width: '100%',
+          height: totalHeight,
+          padding: '0 4px',
+        }}
+      >
+        {positioned.map((item) => (
+          <div
+            key={item.id}
             style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              display: 'block',
-              borderRadius: '0px',
-              boxShadow: '0 8px 30px -10px rgba(0,0,0,0.2)',
+              position: 'absolute',
+              left: item.x,
+              top: item.y,
+              width: item.w,
+              height: item.h,
+              padding: '2px',
             }}
-          />
-        </div>
-      ))}
-    </div>
+          >
+            <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+              <MasonryImage src={item.img} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 
