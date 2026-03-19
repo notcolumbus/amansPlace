@@ -145,9 +145,11 @@ const Masonry: React.FC<MasonryProps> = ({
   }, [columns, items, width]);
 
   const hasMounted = useRef(false);
+  const animating = useRef(false);
 
   useLayoutEffect(() => {
-    if (!imagesReady) return;
+    if (!imagesReady || grid.length === 0) return;
+    if (animating.current) return;
 
     grid.forEach((item, index) => {
       const selector = `[data-key="${item.id}"]`;
@@ -159,6 +161,7 @@ const Masonry: React.FC<MasonryProps> = ({
       };
 
       if (!hasMounted.current) {
+        animating.current = true;
         const initialPos = getInitialPosition(item);
         const initialState = {
           opacity: 0,
@@ -175,7 +178,8 @@ const Masonry: React.FC<MasonryProps> = ({
           ...(blurToFocus && { filter: 'blur(0px)' }),
           duration: 0.8,
           ease: 'power3.out',
-          delay: index * stagger
+          delay: index * stagger,
+          ...(index === grid.length - 1 && { onComplete: () => { animating.current = false; } })
         });
       } else {
         gsap.to(selector, {
