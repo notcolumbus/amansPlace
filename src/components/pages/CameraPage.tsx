@@ -1,4 +1,4 @@
-import Masonry from '../Masonry';
+import Masonry from '../camera/Masonry';
 
 const photos = [
   { id: '1', img: 'https://picsum.photos/seed/1/600/800', height: 800 },
@@ -13,12 +13,11 @@ const photos = [
 
 function CameraPage() {
   return (
-    <div className="pt-8" style={{ height: '80vh' }}>
+    <div className="pt-10" style={{ height: '80vh' }}>
       <Masonry
         items={photos}
         animateFrom="bottom"
         stagger={0.1}
-        scaleOnHover
       />
     </div>
   )

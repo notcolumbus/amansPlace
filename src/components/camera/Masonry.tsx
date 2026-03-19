@@ -4,7 +4,12 @@ import { gsap } from 'gsap';
 import './Masonry.css';
 
 const useMedia = (queries: string[], values: number[], defaultValue: number): number => {
-  const get = () => values[queries.findIndex(q => matchMedia(q).matches)] ?? defaultValue;
+  const queriesRef = useRef(queries);
+  const valuesRef = useRef(values);
+  queriesRef.current = queries;
+  valuesRef.current = values;
+
+  const get = () => valuesRef.current[queriesRef.current.findIndex(q => matchMedia(q).matches)] ?? defaultValue;
 
   const [value, setValue] = useState<number>(get);
 
@@ -12,7 +17,8 @@ const useMedia = (queries: string[], values: number[], defaultValue: number): nu
     const handler = () => setValue(get);
     queries.forEach(q => matchMedia(q).addEventListener('change', handler));
     return () => queries.forEach(q => matchMedia(q).removeEventListener('change', handler));
-  }, [queries]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return value;
 };
@@ -25,7 +31,7 @@ const useMeasure = <T extends HTMLElement>() => {
     if (!ref.current) return;
     const ro = new ResizeObserver(([entry]) => {
       const { width, height } = entry.contentRect;
-      setSize({ width, height });
+      setSize(prev => (prev.width === width && prev.height === height) ? prev : { width, height });
     });
     ro.observe(ref.current);
     return () => ro.disconnect();
@@ -66,10 +72,7 @@ interface MasonryProps {
   duration?: number;
   stagger?: number;
   animateFrom?: 'bottom' | 'top' | 'left' | 'right' | 'center' | 'random';
-  scaleOnHover?: boolean;
-  hoverScale?: number;
   blurToFocus?: boolean;
-  colorShiftOnHover?: boolean;
 }
 
 const Masonry: React.FC<MasonryProps> = ({
@@ -78,14 +81,11 @@ const Masonry: React.FC<MasonryProps> = ({
   duration = 0.6,
   stagger = 0.05,
   animateFrom = 'bottom',
-  scaleOnHover = true,
-  hoverScale = 0.95,
   blurToFocus = true,
-  colorShiftOnHover = false
 }) => {
   const columns = useMedia(
-    ['(min-width:1000px)', '(min-width:600px)'],
-    [3, 2],
+    ['(min-width:600px)'],
+    [2],
     1
   );
 
@@ -194,84 +194,17 @@ const Masonry: React.FC<MasonryProps> = ({
     hasMounted.current = true;
   }, [grid, imagesReady, stagger, animateFrom, blurToFocus, duration, ease]);
 
-  const handleMouseEnter = (e: React.MouseEvent, item: GridItem) => {
-    const element = e.currentTarget as HTMLElement;
-    const selector = `[data-key="${item.id}"]`;
-
-    if (scaleOnHover) {
-      gsap.to(selector, {
-        scale: hoverScale,
-        duration: 0.3,
-        ease: 'power2.out'
-      });
-    }
-
-    if (colorShiftOnHover) {
-      const overlay = element.querySelector('.color-overlay') as HTMLElement;
-      if (overlay) {
-        gsap.to(overlay, {
-          opacity: 0.3,
-          duration: 0.3
-        });
-      }
-    }
-  };
-
-  const handleMouseLeave = (e: React.MouseEvent, item: GridItem) => {
-    const element = e.currentTarget as HTMLElement;
-    const selector = `[data-key="${item.id}"]`;
-
-    if (scaleOnHover) {
-      gsap.to(selector, {
-        scale: 1,
-        duration: 0.3,
-        ease: 'power2.out'
-      });
-    }
-
-    if (colorShiftOnHover) {
-      const overlay = element.querySelector('.color-overlay') as HTMLElement;
-      if (overlay) {
-        gsap.to(overlay, {
-          opacity: 0,
-          duration: 0.3
-        });
-      }
-    }
-  };
-
   return (
     <div ref={containerRef} className="list">
-      {grid.map(item => {
-        return (
-          <div
-            key={item.id}
-            data-key={item.id}
-            className="item-wrapper"
-            onMouseEnter={e => handleMouseEnter(e, item)}
-            onMouseLeave={e => handleMouseLeave(e, item)}
-          >
-            <div className="item-img" style={{ backgroundImage: `url(${item.img})` }}>
-              {colorShiftOnHover && (
-                <div
-                  className="color-overlay"
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    background: 'linear-gradient(45deg, rgba(255,0,150,0.5), rgba(0,150,255,0.5))',
-                    opacity: 0,
-                    pointerEvents: 'none',
-                    borderRadius: '8px'
-                  }}
-                />
-              )}
-            </div>
-          </div>
-        );
-      })}
+      {grid.map(item => (
+        <div
+          key={item.id}
+          data-key={item.id}
+          className="item-wrapper"
+        >
+          <div className="item-img" style={{ backgroundImage: `url(${item.img})` }} />
+        </div>
+      ))}
     </div>
   );
 };

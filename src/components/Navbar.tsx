@@ -3,7 +3,7 @@ import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { TextMorph } from 'torph/react';
 
 export const pages = [
-  { path: '/', title: "Aman's Place", label: "Place", bg: '#7eb2dd', headingClass: 'offwhite' },
+  { path: '/', title: "Aman's Place", label: "Place", bg: '#a3b065', headingClass: 'offwhite' },
   { path: '/photos', title: "Aman's Photos", label: "Photos", bg: '#fcecc9', headingClass: 'text-black' },
   { path: '/art', title: "Aman's Art", label: "Art", bg: '#e7c8dd', headingClass: 'text-[#112A46]' },
 ];
@@ -12,8 +12,8 @@ function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const currentPage = pages.find(p => p.path === location.pathname) || pages[0];
-  const otherPages = pages.filter(p => p.path !== location.pathname);
   const [open, setOpen] = useState(false);
+  const [hovering, setHovering] = useState(false);
   const [shimmer, setShimmer] = useState<'idle' | 'playing' | 'done'>('idle');
 
   const hc = `rammetto-one-regular ${currentPage.headingClass}`;
@@ -26,6 +26,8 @@ function Navbar() {
     return () => { clearTimeout(t); clearTimeout(t2); };
   }, []);
 
+  const linksToShow = hovering ? pages : pages.filter(p => p.path !== location.pathname);
+
   return (
     <div className="relative pt-15 flex items-baseline flex-wrap gap-4">
       <h1 className={`${hc} text-3xl sm:text-4xl md:text-5xl inline`}>
@@ -33,10 +35,18 @@ function Navbar() {
           {"Aman's "}
         </TextMorph>
 
-        <span className="hidden lg:inline">
-          <TextMorph as="span" className={hc}>{currentPage.label}</TextMorph>
+        {/* Desktop: morphs between current label and "?" on hover */}
+        <span
+          className="hidden lg:inline"
+          onMouseEnter={() => setHovering(true)}
+          onMouseLeave={() => setHovering(false)}
+        >
+          <TextMorph as="span" className={hc}>
+            {hovering ? '?' : currentPage.label}
+          </TextMorph>
         </span>
 
+        {/* Mobile/Tablet: dropdown */}
         <span className="relative lg:hidden">
           <button
             onClick={() => setOpen(o => !o)}
@@ -66,14 +76,23 @@ function Navbar() {
         </span>
       </h1>
 
-      <span className="hidden lg:inline-flex gap-3 align-baseline">
+      {/* Desktop nav links */}
+      <span
+        className="hidden lg:inline-flex gap-3 align-baseline"
+        onMouseEnter={() => setHovering(true)}
+        onMouseLeave={() => setHovering(false)}
+      >
         {(() => {
           let charIndex = 0;
-          return otherPages.map(page => (
+          return linksToShow.map(page => (
             <Link
               key={page.path}
               to={page.path}
-              className={`${hc} text-lg sm:text-xl md:text-2xl opacity-80 hover:opacity-100 transition-opacity duration-200`}
+              className={`${hc} transition-all duration-300 ${
+                hovering
+                  ? `text-2xl sm:text-3xl md:text-4xl ${page.path === location.pathname ? 'opacity-100' : 'opacity-80 hover:opacity-100'}`
+                  : 'text-lg sm:text-xl md:text-2xl opacity-80 hover:opacity-100'
+              }`}
             >
               {page.label.split('').map((char, i) => {
                 const delay = charIndex * 0.04;

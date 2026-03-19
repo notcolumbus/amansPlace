@@ -1,21 +1,24 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&family=Familjen+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Luckiest+Guy&family=Rammetto+One&family=Shrikhand&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
 body {
-  background-color: #7eb2dd;
+  background-color: #a3b065;
   transition: background-color 0.3s;
 }
+
 .rammetto-one-regular {
   font-family: "Rammetto One", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
+
 .offwhite {
   color: #fcecc9;
 }
+
 .footer-text {
   font-family: "Rammetto One", sans-serif;
   font-weight: 400;
@@ -39,6 +42,7 @@ body {
   color: #683b4d;
   font-style: normal;
 }
+
 .crete-round-regular {
   font-family: "Crete Round", serif;
   font-weight: 400;
@@ -50,6 +54,7 @@ body {
   font-weight: 400;
   font-style: italic;
 }
+
 .belanosima-regular {
   font-family: "Belanosima", sans-serif;
   font-weight: 400;
@@ -108,9 +113,23 @@ body {
 }
 
 @keyframes nav-elastic {
-  0% { transform: scaleY(1) scaleX(1) scale(1); }
-  25% { transform: scaleY(1.35) scaleX(0.9) scale(1.15); }
-  50% { transform: scaleY(0.85) scaleX(1.05) scale(1.05); }
-  75% { transform: scaleY(1.1) scaleX(0.97) scale(1.02); }
-  100% { transform: scaleY(1) scaleX(1) scale(1); }
+  0% {
+    transform: scaleY(1) scaleX(1) scale(1);
+  }
+
+  25% {
+    transform: scaleY(1.35) scaleX(0.9) scale(1.15);
+  }
+
+  50% {
+    transform: scaleY(0.85) scaleX(1.05) scale(1.05);
+  }
+
+  75% {
+    transform: scaleY(1.1) scaleX(0.97) scale(1.02);
+  }
+
+  100% {
+    transform: scaleY(1) scaleX(1) scale(1);
+  }
 }

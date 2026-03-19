@@ -37,17 +37,6 @@ const projectCards: ProjectCard[] = [
         titleFontSize: 30,
         titleFontClass: "jetbrains-mono-regular",
     },
-    {
-        title: "Fit Finder",
-        subtitle: "The Outfit Search Engine",
-        content:
-            "Fit Finder helps users recreate outfits they see online using clothes they already own, reducing fast-fashion waste and impulse buying. Users digitize their wardrobe, then search from an inspiration image to find the closest in-closet matches.\n\nUnder the hood, the app uses OpenCLIP embeddings with MongoDB vector search (plus hybrid color/metadata matching) through a Flask backend. It also suggests sustainable buying alternatives using AI-generated item descriptions and live search results.",
-        link: "https://devpost.com/software/fit-finder-10nxvg",
-        pictures: ["https://ik.imagekit.io/sjuopypj1/Gemini%20Generated%20Image%20(4).png"],
-        color: "#659157",
-        titleFontSize: 48,
-        titleFontClass: "shrikhand-regular",
-    },
 ];
 
 function CardContainer() {

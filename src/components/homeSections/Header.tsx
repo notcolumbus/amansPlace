@@ -4,11 +4,11 @@ import { SiDevpost } from "react-icons/si";
 import { FaYoutube } from "react-icons/fa";
 import { RiTwitterXLine } from "react-icons/ri";
 import { RiInstagramFill } from "react-icons/ri";
-import { LinkPreview } from "../ui/link-preview";
+
 
 function Header() {
     return (
-        <div className="pt-4">
+        <div>
             <h2 className="text-xl atkinson-hyperlegible-next-regular text-white">
                 Hi, I'm Aman! Idk what I specifically do yet but I like making cool things. This page is my canvas, and I've painted it how I like! Check it out! </h2>
             <div className="flex flex-col gap-3 pt-6 sm:flex-row sm:items-center sm:justify-between">
@@ -33,8 +33,8 @@ function Header() {
                     </a>
                 </div>
                 <div className="flex items-center gap-2 self-start sm:ml-auto sm:gap-3 sm:self-auto">
-                    <LinkPreview url="https://ik.imagekit.io/sjuopypj1/aman%20resume%20(2).pdf"><span className="text-lg pt-2 atkinson-hyperlegible-next-regular text-white">Resume</span></LinkPreview>
-                    <LinkPreview url="https://ik.imagekit.io/sjuopypj1/amans_cv%20(1).pdf"><span className="text-lg pt-2 atkinson-hyperlegible-next-regular text-white">CV</span></LinkPreview>
+                    <a href="https://ik.imagekit.io/sjuopypj1/aman%20resume%20(2).pdf" target="_blank" rel="noopener noreferrer"><span className="text-lg pt-2 atkinson-hyperlegible-next-regular text-white">Resume</span></a>
+                    <a href="https://ik.imagekit.io/sjuopypj1/amans_cv%20(1).pdf" target="_blank" rel="noopener noreferrer"><span className="text-lg pt-2 atkinson-hyperlegible-next-regular text-white">CV</span></a>
                 </div>
             </div>
         </div>
