@@ -14,18 +14,20 @@ function App() {
   }, [currentPage.bg]);
 
   return (
-    <div className="min-h-screen p-2 sm:p-4 md:p-6">
-      <div className="md:grid md:grid-cols-5">
-        <div className="col-span-1" />
-        <main className="col-span-3">
+    <div className="min-h-screen p-2 sm:p-4 md:p-6 lg:grid lg:grid-cols-10 lg:gap-6">
+      <aside className="hidden lg:block col-span-3 sticky top-6 self-start pt-10">
+        <Navbar />
+      </aside>
+
+      <div className="lg:col-span-7 lg:pt-15">
+        <div className="lg:hidden">
           <Navbar />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/photos" element={<CameraPage />} />
-            <Route path="/art" element={<ArtPage />} />
-          </Routes>
-        </main>
-        <div className="col-span-1" />
+        </div>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/photos" element={<CameraPage />} />
+          <Route path="/art" element={<ArtPage />} />
+        </Routes>
       </div>
     </div>
   )

@@ -57,7 +57,7 @@ function WorkCard({ title, subtitle, content, link, pictures, color, titleFontCl
                                 decoding="async"
                             />
 
-                            <motion.h1 layoutId={`title-${title}`} className={`text-5xl font-bold mb-2 ${titleFontClass} `}>{title}</motion.h1>
+                            <motion.h2 layoutId={`title-${title}`} className={`text-5xl font-bold mb-2 ${titleFontClass} `}>{title}</motion.h2>
 
                             <h2 className="text-lg opacity-70 mb-6 atkinson-hyperlegible-next-regular ">{subtitle}</h2>
 
@@ -90,7 +90,7 @@ function WorkCard({ title, subtitle, content, link, pictures, color, titleFontCl
                 </motion.div>
                 :
                 <motion.div layout whileHover={{ scale: 0.97 }} transition={{ type: 'spring', stiffness: 400, damping: 20 }} className="aspect-2/3 sm:aspect-auto sm:h-64 md:h-72 lg:h-96 w-full p-6 flex flex-col justify-between cursor-pointer" style={{ backgroundColor: color }} onClick={() => setOpen(true)}>
-                    <motion.h1 
+                    <motion.h2 
                         layoutId={`title-${title}`} 
                         className={`font-bold text-left ${titleFontClass}`}
                         style={{ 
@@ -101,7 +101,7 @@ function WorkCard({ title, subtitle, content, link, pictures, color, titleFontCl
                         }}
                     >
                         {title}
-                    </motion.h1>
+                    </motion.h2>
                     <motion.img layoutId={`icon-${title}`} src={pictures[0]} alt={title} className="w-43" loading="lazy" decoding="async" />
 
                 </motion.div>

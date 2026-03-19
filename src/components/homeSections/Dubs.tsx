@@ -44,7 +44,7 @@ function Dubs() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
                     <div className="absolute bottom-0 left-0 p-4 z-20 flex flex-col gap-1 items-start">
                         <ComicText fontSize={card.fontSize} className="text-left atkinson-hyperlegible-next-regular">{card.number}</ComicText>
-                        <h1 className={`${card.titleSize} text-white font-bold atkinson-hyperlegible-next-regular drop-shadow-lg`}>
+                        <h1 className={`${card.titleSize} text-[#fcecc9] font-bold atkinson-hyperlegible-next-regular drop-shadow-lg`}>
                             {card.title}
                         </h1>
                     </div>

@@ -49,7 +49,7 @@ const ResearchCard = ({
     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10" />
     <div className="absolute p-6 left-0 top-0 z-20 w-full">
       <h2
-        className="text-4xl text-white atkinson-hyperlegible-next-regular"
+        className="text-4xl text-[#fcecc9] atkinson-hyperlegible-next-regular"
         style={{ textShadow: "0 2px 10px rgba(0,0,0,0.5)" }}
       >
         {title}
@@ -57,13 +57,13 @@ const ResearchCard = ({
     </div>
     <div className="absolute bottom-0 left-0 p-6 z-20 w-full">
       <h1
-        className="text-xl text-white font-bold atkinson-hyperlegible-next-regular"
+        className="text-xl text-[#fcecc9] font-bold atkinson-hyperlegible-next-regular"
         style={{ textShadow: "0 2px 10px rgba(0,0,0,0.5)" }}
       >
         {heading}
       </h1>
       <p
-        className="text-white text-base mt-2 atkinson-hyperlegible-next-regular"
+        className="text-[#fcecc9] text-base mt-2 atkinson-hyperlegible-next-regular"
         style={{ textShadow: "0 1px 3px rgba(0,0,0,0.5)" }}
       >
         {description}

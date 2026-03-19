@@ -146,10 +146,14 @@ const Masonry: React.FC<MasonryProps> = ({
 
   const hasMounted = useRef(false);
   const animating = useRef(false);
+  const tweensRef = useRef<gsap.core.Tween[]>([]);
 
   useLayoutEffect(() => {
     if (!imagesReady || grid.length === 0) return;
     if (animating.current) return;
+
+    tweensRef.current.forEach(t => t.kill());
+    tweensRef.current = [];
 
     grid.forEach((item, index) => {
       const selector = `[data-key="${item.id}"]`;
@@ -172,7 +176,7 @@ const Masonry: React.FC<MasonryProps> = ({
           ...(blurToFocus && { filter: 'blur(10px)' })
         };
 
-        gsap.fromTo(selector, initialState, {
+        tweensRef.current.push(gsap.fromTo(selector, initialState, {
           opacity: 1,
           ...animationProps,
           ...(blurToFocus && { filter: 'blur(0px)' }),
@@ -180,18 +184,19 @@ const Masonry: React.FC<MasonryProps> = ({
           ease: 'power3.out',
           delay: index * stagger,
           ...(index === grid.length - 1 && { onComplete: () => { animating.current = false; } })
-        });
+        }));
       } else {
-        gsap.to(selector, {
+        tweensRef.current.push(gsap.to(selector, {
           ...animationProps,
           duration: duration,
           ease: ease,
           overwrite: 'auto'
-        });
+        }));
       }
     });
 
     hasMounted.current = true;
+    return () => { tweensRef.current.forEach(t => t.kill()); };
   }, [grid, imagesReady, stagger, animateFrom, blurToFocus, duration, ease]);
 
   return (

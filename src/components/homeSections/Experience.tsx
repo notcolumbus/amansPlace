@@ -112,7 +112,7 @@ function Experience() {
             )}
 
             {!isDesktop && (
-                <button onClick={toggleShow} className='text-white/90 md:hidden mt-1 atkinson-hyperlegible-next-regular '>
+                <button onClick={toggleShow} className='text-[#fcecc9]/90 md:hidden mt-1 atkinson-hyperlegible-next-regular '>
                     {isOpen ? 'Show Less' : 'Show More'}
                 </button>
             )}
