@@ -1,14 +1,18 @@
 import Masonry from '../camera/Masonry';
 
 const photos = [
-  { id: '1', img: 'https://picsum.photos/seed/1/600/800', height: 800 },
-  { id: '2', img: 'https://picsum.photos/seed/2/600/400', height: 400 },
-  { id: '3', img: 'https://picsum.photos/seed/3/600/600', height: 600 },
-  { id: '4', img: 'https://picsum.photos/seed/4/600/500', height: 500 },
-  { id: '5', img: 'https://picsum.photos/seed/5/600/700', height: 700 },
-  { id: '6', img: 'https://picsum.photos/seed/6/600/450', height: 450 },
-  { id: '7', img: 'https://picsum.photos/seed/7/600/650', height: 650 },
-  { id: '8', img: 'https://picsum.photos/seed/8/600/550', height: 550 },
+  { id: '1', img: 'https://ik.imagekit.io/sjuopypj1/IMG_6095.JPEG', height: 900 },
+  { id: '4', img: 'https://ik.imagekit.io/sjuopypj1/IMG_0481.HEIC', height: 500 },
+  { id: '5', img: 'https://ik.imagekit.io/sjuopypj1/IMG_0477.HEIC', height: 700 },
+  { id: '6', img: 'https://ik.imagekit.io/sjuopypj1/IMG_0580.JPG', height: 750 },
+  { id: '7', img: 'https://ik.imagekit.io/sjuopypj1/IMG_0425.HEIC', height: 650 },
+  { id: '8', img: 'https://ik.imagekit.io/sjuopypj1/IMG_0586.JPG', height: 650 },
+  { id: '9', img: 'https://ik.imagekit.io/sjuopypj1/IMG_0386.HEIC', height: 600 },
+  { id: '10', img: 'https://ik.imagekit.io/sjuopypj1/IMG_0427.HEIC', height: 800 },
+  { id: '11', img: 'https://ik.imagekit.io/sjuopypj1/IMG_0423.HEIC', height: 650 },
+  { id: '12', img: 'https://ik.imagekit.io/sjuopypj1/IMG_0585.JPG', height: 750 },
+  { id: '3', img: 'https://ik.imagekit.io/sjuopypj1/IMG_0380.HEIC', height: 800 },
+  { id: '14', img: 'https://ik.imagekit.io/sjuopypj1/IMG_7557.HEIC', height: 700 },
 ];
 
 function CameraPage() {

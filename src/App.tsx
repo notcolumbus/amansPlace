@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="min-h-screen p-2 sm:p-4 md:p-6 lg:grid lg:grid-cols-10 lg:gap-6">
-      <aside className="hidden lg:block col-span-3 sticky top-6 self-start pt-10">
+      <aside className="hidden lg:block col-span-3 sticky top-6 self-start">
         <Navbar />
       </aside>
 
