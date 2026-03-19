@@ -59,7 +59,6 @@ const MasonryImage: React.FC<{ src: string }> = ({ src }) => {
       <img
         src={src}
         alt=""
-        loading="lazy"
         onLoad={onLoad}
         style={{
           width: '100%',
