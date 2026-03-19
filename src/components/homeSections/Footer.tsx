@@ -11,7 +11,7 @@ function Footer() {
 
         const loadViews = async () => {
             try {
-                const response = await fetch('https://abacus.jasoncameron.dev/hit/dev/key', {
+                const response = await fetch('https://abacus.jasoncameron.dev/hit/amananwar/key', {
                     signal: controller.signal,
                 });
 
@@ -21,7 +21,7 @@ function Footer() {
 
                 const data: { value?: number } = await response.json();
                 if (typeof data.value === 'number') {
-                    setViews(data.value - 2000);
+                    setViews(data.value - 200);
                 }
             } catch (error) {
                 if ((error as DOMException).name !== 'AbortError') {
