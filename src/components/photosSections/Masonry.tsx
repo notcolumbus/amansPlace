@@ -44,7 +44,7 @@ const Masonry: React.FC<MasonryProps> = ({ items }) => {
     return () => ro.disconnect();
   }, []);
 
-  const gap = 10;
+  const gap = 4;
 
   const positioned = useMemo(() => {
     if (!containerWidth) return [];
@@ -88,7 +88,7 @@ const Masonry: React.FC<MasonryProps> = ({ items }) => {
             top: item.y,
             width: item.w,
             height: item.h,
-            padding: '4px',
+            padding: '2px',
           }}
         >
           <img
@@ -100,7 +100,7 @@ const Masonry: React.FC<MasonryProps> = ({ items }) => {
               height: '100%',
               objectFit: 'cover',
               display: 'block',
-              borderRadius: '8px',
+              borderRadius: '0px',
               boxShadow: '0 8px 30px -10px rgba(0,0,0,0.2)',
             }}
           />

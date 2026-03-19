@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar, { pages } from './components/Navbar';
 import HomePage from './components/pages/HomePage';
-import CameraPage from './components/pages/CameraPage';
+import PhotoPage from './components/pages/PhotoPage';
 import ArtPage from './components/pages/ArtPage';
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
         </div>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/photos" element={<CameraPage />} />
+          <Route path="/photos" element={<PhotoPage />} />
           <Route path="/art" element={<ArtPage />} />
         </Routes>
       </div>

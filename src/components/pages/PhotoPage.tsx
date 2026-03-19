@@ -1,4 +1,4 @@
-import Masonry from '../camera/Masonry';
+import Masonry from '../photosSections/Masonry';
 
 const photos = [
   { id: '1', img: 'https://ik.imagekit.io/sjuopypj1/IMG_6095.JPEG', height: 900 },
@@ -15,7 +15,7 @@ const photos = [
   { id: '14', img: 'https://ik.imagekit.io/sjuopypj1/IMG_7557.HEIC', height: 700 },
 ];
 
-function CameraPage() {
+function PhotoPage() {
   return (
     <div className="">
       <Masonry items={photos} />
@@ -23,4 +23,4 @@ function CameraPage() {
   );
 }
 
-export default CameraPage;
+export default PhotoPage;
