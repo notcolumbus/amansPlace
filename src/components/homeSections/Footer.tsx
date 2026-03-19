@@ -11,7 +11,7 @@ function Footer() {
 
         const loadViews = async () => {
             try {
-                const response = await fetch('https://abacus.jasoncameron.dev/hit/amananwarn/key', {
+                const response = await fetch('https://abacus.jasoncameron.dev/hit/amananwar/key', {
                     signal: controller.signal,
                 });
 

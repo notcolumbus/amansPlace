@@ -13,14 +13,10 @@ const photos = [
 
 function CameraPage() {
   return (
-    <div className="pt-10" style={{ height: '80vh' }}>
-      <Masonry
-        items={photos}
-        animateFrom="bottom"
-        stagger={0.1}
-      />
+    <div className="">
+      <Masonry items={photos} />
     </div>
-  )
+  );
 }
 
-export default CameraPage
+export default CameraPage;

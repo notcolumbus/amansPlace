@@ -33,13 +33,13 @@ function Navbar() {
       {/* Desktop: vertical nav */}
       <div className="hidden lg:flex lg:flex-col lg:gap-6">
         <div>
-          <h1 className={`${hc} text-3xl md:text-4xl`}>
+          <h1 className={`${hc} text-4xl md:text-5xl`}>
             <TextMorph as="span" className={hc}>
               {hovering ? "Aman's ?" : "Aman's"}
             </TextMorph>
           </h1>
           {!hovering && (
-            <h2 className={`${hc} text-5xl md:text-6xl`}>
+            <h2 className={`${hc} text-6xl md:text-7xl`}>
               <TextMorph as="span" className={hc}>
                 {currentPage.label}
               </TextMorph>
@@ -58,10 +58,10 @@ function Navbar() {
               <Link
                 key={page.path}
                 to={page.path}
-                className={`${hc} transition-all duration-300 ${
+                className={`${hc} relative transition-all duration-300 before:content-[''] before:absolute before:-inset-3 ${
                   hovering
-                    ? `text-3xl md:text-4xl ${page.path === location.pathname ? 'opacity-100' : 'opacity-80 hover:opacity-100'}`
-                    : 'text-xl md:text-2xl opacity-80 hover:opacity-100'
+                    ? `text-5xl md:text-7xl ${page.path === location.pathname ? 'opacity-100' : 'opacity-80 hover:opacity-100'}`
+                    : 'text-3xl md:text-4xl opacity-80 hover:opacity-100'
                 }`}
               >
                 {page.label.split('').map((char, i) => {
