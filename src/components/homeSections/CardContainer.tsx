@@ -33,7 +33,7 @@ const projectCards: ProjectCard[] = [
             "AmbisonicsPy is a lightweight Python framework for generating spatial audio. It provides a clean set of primitives to build 3D sound scenes, including Speaker for source modeling and SoundStage for ambisonic encoding and rendering.\n\nThe library supports time-based movement effects, binaural output, and raw ambisonic exports, making it practical for research and creative audio workflows. The docs cover speaker behavior, soundstage rendering, and effect composition in detail.",
         link: "https://docs.amans.place/ambisonicpy/introduction",
         pictures: ["https://ik.imagekit.io/sjuopypj1/Gemini%20Generated%20Image.webp?updatedAt=1767884227402"],
-        color: "#6B8EE8",
+        color: "#7eb2dd",
         titleFontSize: 30,
         titleFontClass: "jetbrains-mono-regular",
     },
