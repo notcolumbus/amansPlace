@@ -26,7 +26,8 @@ function Navbar() {
     return () => { clearTimeout(t); clearTimeout(t2); };
   }, []);
 
-  const linksToShow = hovering ? pages : pages.filter(p => p.path !== location.pathname);
+  const otherPages = pages.filter(p => p.path !== location.pathname);
+  const linksToShow = hovering ? [currentPage, ...otherPages] : otherPages;
 
   return (
     <>
@@ -86,7 +87,7 @@ function Navbar() {
       </div>
 
       {/* Mobile/Tablet: horizontal nav with dropdown */}
-      <div className="lg:hidden relative pt-15 flex items-baseline flex-wrap gap-4">
+      <div className="lg:hidden pt-15 flex items-baseline flex-wrap gap-4">
         <h1 className={`${hc} text-3xl sm:text-4xl inline`}>
           <TextMorph as="span" className={hc}>
             {"Aman's "}

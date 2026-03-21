@@ -6,7 +6,7 @@ import GradualBlur from './components/ui/GradualBlur.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <section style={{ position: 'relative', minHeight: '100vh' }}>
-    <div style={{ height: '100%', overflowY: 'auto' }}>
+    <div style={{ height: '100%' }}>
       <BrowserRouter>
 
         <App />
