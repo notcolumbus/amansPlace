@@ -20,7 +20,7 @@ function App() {
       </aside>
 
       <div className="lg:col-span-7 lg:pt-15">
-        <div className="lg:hidden sticky top-0 z-40">
+        <div className="lg:hidden">
           <Navbar />
         </div>
         <Routes>
