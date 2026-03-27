@@ -18,14 +18,14 @@ function HomePage() {
       <h3 className="text-[#fcecc9] text-xl mt-6 atkinson-hyperlegible-next-regular ">
         and more on my{" "}
         <LinkPreview
-          url="https://github.com"
+          url="https://github.com/notcolumbus"
           className="font-bold text-[#fcecc9] hover:text-neutral-300"
         >
           github
         </LinkPreview>{" "}
         and{" "}
         <LinkPreview
-          url="https://devpost.com"
+          url="https://devpost.com/aman-anwar18oct"
           className="font-bold text-[#fcecc9] hover:text-neutral-300"
         >
           devpost
