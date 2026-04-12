@@ -2,7 +2,6 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
-import GradualBlur from './components/ui/GradualBlur.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <section style={{ position: 'relative', minHeight: '100vh' }}>
@@ -14,12 +13,6 @@ createRoot(document.getElementById('root')!).render(
       </BrowserRouter>
     </div>
 
-    <div className="hidden sm:block" style={{ position: 'fixed', bottom: 0, left: 0, right: 0, pointerEvents: 'none' }}>
-      <GradualBlur
-        strength={2}
-        divCount={1}
-      />
-    </div>
   </section>
 
 

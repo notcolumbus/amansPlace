@@ -4,7 +4,6 @@ import Experience from '../homeSections/Experience';
 import { LinkPreview } from '../ui/link-preview';
 import Research from '../homeSections/Research';
 import Dubs from '../homeSections/Dubs';
-import Footer from '../homeSections/Footer';
 
 function HomePage() {
   return (
@@ -35,7 +34,6 @@ function HomePage() {
       <Research />
       <h2 className="rammetto-one-regular offwhite text-4xl pt-12 pb-6">Awards</h2>
       <Dubs></Dubs>
-      <Footer />
     </>
   )
 }
