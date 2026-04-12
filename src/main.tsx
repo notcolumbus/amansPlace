@@ -4,9 +4,9 @@ import posthog from 'posthog-js'
 import './index.css'
 import App from './App.tsx'
 
-posthog.init(import.meta.env.VITE_PUBLIC_POSTHOG_KEY, {
-  api_host: import.meta.env.VITE_PUBLIC_POSTHOG_HOST,
-  autocapture: false,
+posthog.init('phc_dm0MKxple1slxSnfnC70E4IR8bOH0Zjq2wWVieRw6Yh', {
+  api_host: 'https://amans.place',
+  defaults: '2026-01-30'
 })
 
 createRoot(document.getElementById('root')!).render(
