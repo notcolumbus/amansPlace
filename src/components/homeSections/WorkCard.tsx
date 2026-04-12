@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import posthog from "posthog-js";
 
 type WorkCardProps = {
     title: string;
@@ -68,7 +69,7 @@ function WorkCard({ title, subtitle, content, link, pictures, color, titleFontCl
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-block px-6 py-3 bg-black/20 rounded-lg hover:bg-black/30 atkinson-hyperlegible-next-regular "
-                                onClick={(e) => e.stopPropagation()}
+                                onClick={(e) => { e.stopPropagation(); posthog.capture('project link clicked', { project: title, url: link }); }}
                             >
                                 View Project
                             </a>
@@ -89,7 +90,7 @@ function WorkCard({ title, subtitle, content, link, pictures, color, titleFontCl
                     </div>
                 </motion.div>
                 :
-                <motion.div layout whileHover={{ scale: 0.97 }} transition={{ type: 'spring', stiffness: 400, damping: 20 }} className="aspect-2/3 sm:aspect-auto sm:h-64 md:h-72 lg:h-96 w-full p-6 flex flex-col justify-between cursor-pointer" style={{ backgroundColor: color }} onClick={() => setOpen(true)}>
+                <motion.div layout whileHover={{ scale: 0.97 }} transition={{ type: 'spring', stiffness: 400, damping: 20 }} className="aspect-2/3 sm:aspect-auto sm:h-64 md:h-72 lg:h-96 w-full p-6 flex flex-col justify-between cursor-pointer" style={{ backgroundColor: color }} onClick={() => { setOpen(true); posthog.capture('work card opened', { project: title }); }}>
                     <motion.h2 
                         layoutId={`title-${title}`} 
                         className={`font-bold text-left ${titleFontClass}`}

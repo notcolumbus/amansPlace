@@ -4,6 +4,7 @@ import { TextMorph } from 'torph/react';
 import Rive, { Alignment, Fit, Layout } from '@rive-app/react-canvas';
 import SlotCounter from 'react-slot-counter';
 import catRiv from '../assets/cat.riv?url';
+import posthog from 'posthog-js';
 export const pages = [
   { path: '/', title: "Aman's Place", label: "Place", bg: '#a3b065', headingClass: 'offwhite' },
   { path: '/photos', title: "Aman's Photos", label: "Photos", bg: '#fcecc9', headingClass: 'text-black' },
@@ -61,6 +62,7 @@ function Navbar({ views }: { views: number | null }) {
               <Link
                 key={page.path}
                 to={page.path}
+                onClick={() => posthog.capture('nav page clicked', { page: page.label, path: page.path })}
                 className={`${hc} relative transition-all duration-300 before:content-[''] before:absolute before:-inset-3 ${hovering
                   ? `text-5xl md:text-7xl ${page.path === location.pathname ? 'opacity-100' : 'opacity-80 hover:opacity-100'}`
                   : 'text-3xl md:text-4xl opacity-80 hover:opacity-100'
@@ -128,7 +130,7 @@ function Navbar({ views }: { views: number | null }) {
                   {pages.map(page => (
                     <button
                       key={page.path}
-                      onClick={() => { setOpen(false); navigate(page.path); }}
+                      onClick={() => { setOpen(false); navigate(page.path); posthog.capture('nav page clicked', { page: page.label, path: page.path }); }}
                       className={`${hc} text-4xl transition-opacity duration-200 ${page.path === location.pathname ? 'opacity-100' : 'opacity-50 hover:opacity-100'}`}
                     >
                       {page.label}
