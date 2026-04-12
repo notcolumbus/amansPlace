@@ -18,7 +18,7 @@ function App() {
     const controller = new AbortController();
     const loadViews = async () => {
       try {
-        const response = await fetch('https://abacus.jasoncameron.dev/hit/amananwa9r/key', {
+        const response = await fetch('https://abacus.jasoncameron.dev/hit/amananwar/key', {
           signal: controller.signal,
         });
         if (!response.ok) return;
