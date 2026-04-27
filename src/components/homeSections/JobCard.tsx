@@ -1,10 +1,10 @@
-import React from 'react';
+import type { ReactNode } from 'react';
 
 interface JobCardProps {
     company: string;
     position: string;
     duration: string;
-    logo?: React.ReactNode;
+    logo?: ReactNode;
     logoSrc?: string;
 }
 

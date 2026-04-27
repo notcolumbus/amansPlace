@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { TextMorph } from 'torph/react';
-import Rive, { Alignment, Fit, Layout } from '@rive-app/react-canvas';
 import SlotCounter from 'react-slot-counter';
-import catRiv from '../assets/cat.riv?url';
 import posthog from 'posthog-js';
 export const pages = [
   { path: '/', title: "Aman's Place", label: "Place", bg: '#a3b065', headingClass: 'offwhite' },
   { path: '/photos', title: "Aman's Photos", label: "Photos", bg: '#fcecc9', headingClass: 'text-black' },
   { path: '/art', title: "Aman's Art", label: "Art", bg: '#e7c8dd', headingClass: 'text-[#112A46]' },
 ];
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 function Navbar({ views }: { views: number | null }) {
   const location = useLocation();
@@ -63,9 +63,9 @@ function Navbar({ views }: { views: number | null }) {
                 key={page.path}
                 to={page.path}
                 onClick={() => posthog.capture('nav page clicked', { page: page.label, path: page.path })}
-                className={`${hc} relative transition-all duration-300 before:content-[''] before:absolute before:-inset-3 ${hovering
-                  ? `text-5xl md:text-7xl ${page.path === location.pathname ? 'opacity-100' : 'opacity-80 hover:opacity-100'}`
-                  : 'text-3xl md:text-4xl opacity-80 hover:opacity-100'
+                className={`${hc} relative transition-[opacity,font-size] duration-200 ease-out active:scale-[0.97] before:content-[''] before:absolute before:-inset-3 ${hovering
+                  ? `text-5xl md:text-7xl ${page.path === location.pathname ? 'opacity-100' : 'opacity-80 [@media(hover:hover)]:hover:opacity-100'}`
+                  : 'text-3xl md:text-4xl opacity-80 [@media(hover:hover)]:hover:opacity-100'
                   }`}
               >
                 {page.label.split('').map((char, i) => {
@@ -75,7 +75,7 @@ function Navbar({ views }: { views: number | null }) {
                     <span
                       key={i}
                       className="inline-block"
-                      style={shimmer === 'playing' ? {
+                      style={shimmer === 'playing' && !prefersReducedMotion ? {
                         animation: `nav-elastic 0.5s cubic-bezier(0.25, 1.5, 0.5, 1) ${delay}s both`,
                       } : undefined}
                     >
@@ -88,16 +88,6 @@ function Navbar({ views }: { views: number | null }) {
           })()}
         </nav>
         <div className="mt-auto pb-4">
-          <div className="overflow-hidden h-96">
-            <div className='w-full h-96 -translate-x-[20%] translate-y-[16%]'>
-              <Rive
-                src={catRiv}
-                style={{ width: '100%', height: '100%', backgroundColor: 'transparent' }}
-                stateMachines="State Machine 1"
-                layout={new Layout({ fit: Fit.Contain, alignment: Alignment.CenterLeft })}
-              />
-            </div>
-          </div>
           {views !== null && (
             <div className={`flex items-baseline gap-2 text-3xl ${hc} font-bold`}>
               <SlotCounter value={views} />
@@ -122,7 +112,7 @@ function Navbar({ views }: { views: number | null }) {
               <span className={`text-lg inline-block transition-transform duration-200 ${open ? 'rotate-180' : ''}`}>▾</span>
             </button>
             {open && (
-              <div className="fixed inset-0 z-50 backdrop-blur-xl bg-black/20 flex flex-col" onClick={() => setOpen(false)}>
+              <div className="mobile-nav-overlay fixed inset-0 z-50 backdrop-blur-xl bg-black/20 flex flex-col" onClick={() => setOpen(false)}>
                 <div className="flex-1 flex items-center justify-center">
                   <span className={`${hc} text-5xl`}>Aman's ?</span>
                 </div>
@@ -131,7 +121,7 @@ function Navbar({ views }: { views: number | null }) {
                     <button
                       key={page.path}
                       onClick={() => { setOpen(false); navigate(page.path); posthog.capture('nav page clicked', { page: page.label, path: page.path }); }}
-                      className={`${hc} text-4xl transition-opacity duration-200 ${page.path === location.pathname ? 'opacity-100' : 'opacity-50 hover:opacity-100'}`}
+                      className={`mobile-nav-item ${hc} text-4xl transition-opacity duration-200 active:scale-[0.97] ${page.path === location.pathname ? 'opacity-100' : 'opacity-50'}`}
                     >
                       {page.label}
                     </button>

@@ -68,7 +68,7 @@ const MasonryImage: React.FC<{ src: string }> = ({ src }) => {
           borderRadius: '0px',
           boxShadow: '0 8px 30px -10px rgba(0,0,0,0.2)',
           opacity: loaded ? 1 : 0,
-          transition: 'opacity 0.4s ease',
+          transition: 'opacity 400ms ease-out',
         }}
       />
     </>

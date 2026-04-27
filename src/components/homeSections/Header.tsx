@@ -6,7 +6,6 @@ import { RiTwitterXLine } from "react-icons/ri";
 import { RiInstagramFill } from "react-icons/ri";
 import posthog from "posthog-js";
 
-
 function Header() {
     return (
         <div>
@@ -34,8 +33,8 @@ function Header() {
                     </a>
                 </div>
                 <div className="flex items-center gap-2 self-start sm:ml-auto sm:gap-3 sm:self-auto">
-                    <a href="https://ik.imagekit.io/sjuopypj1/aman%20resume%20(2).pdf" target="_blank" rel="noopener noreferrer" onClick={() => posthog.capture('resume downloaded')}><span className="text-lg pt-2 atkinson-hyperlegible-next-regular text-[#fcecc9]">Resume</span></a>
-                    <a href="https://ik.imagekit.io/sjuopypj1/amans_cv%20(1).pdf" target="_blank" rel="noopener noreferrer" onClick={() => posthog.capture('cv downloaded')}><span className="text-lg pt-2 atkinson-hyperlegible-next-regular text-[#fcecc9]">CV</span></a>
+                    <a href="https://ik.imagekit.io/sjuopypj1/aman%20resume%20(2).pdf" target="_blank" rel="noopener noreferrer" onClick={() => posthog.capture('resume downloaded')} className="inline-block transition-transform duration-100 ease-out active:scale-[0.97]"><span className="text-lg pt-2 atkinson-hyperlegible-next-regular text-[#fcecc9]">Resume</span></a>
+                    <a href="https://ik.imagekit.io/sjuopypj1/amans_cv%20(1).pdf" target="_blank" rel="noopener noreferrer" onClick={() => posthog.capture('cv downloaded')} className="inline-block transition-transform duration-100 ease-out active:scale-[0.97]"><span className="text-lg pt-2 atkinson-hyperlegible-next-regular text-[#fcecc9]">CV</span></a>
                 </div>
             </div>
         </div>

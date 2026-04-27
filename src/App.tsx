@@ -43,7 +43,7 @@ function App() {
           <Navbar views={views} />
         </div>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePage views={views} />} />
           <Route path="/photos" element={<PhotoPage />} />
           <Route path="/art" element={<ArtPage />} />
         </Routes>

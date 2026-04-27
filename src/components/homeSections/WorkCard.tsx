@@ -68,7 +68,7 @@ function WorkCard({ title, subtitle, content, link, pictures, color, titleFontCl
                                 href={link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block px-6 py-3 bg-black/20 rounded-lg hover:bg-black/30 atkinson-hyperlegible-next-regular "
+                                className="inline-block px-6 py-3 bg-black/20 rounded-lg hover:bg-black/30 active:scale-[0.97] transition-transform duration-100 ease-out atkinson-hyperlegible-next-regular "
                                 onClick={(e) => { e.stopPropagation(); posthog.capture('project link clicked', { project: title, url: link }); }}
                             >
                                 View Project

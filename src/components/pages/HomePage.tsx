@@ -4,10 +4,28 @@ import Experience from '../homeSections/Experience';
 import { LinkPreview } from '../ui/link-preview';
 import Research from '../homeSections/Research';
 import Dubs from '../homeSections/Dubs';
+import Rive from '@rive-app/react-canvas';
+import SlotCounter from 'react-slot-counter';
+import catRiv from '../../assets/cat.riv?url';
 
-function HomePage() {
+function HomePage({ views }: { views: number | null }) {
   return (
     <>
+      <div className="lg:hidden flex flex-col items-center -mt-4 mb-4">
+        <div className="w-72 h-72">
+          <Rive
+            src={catRiv}
+            style={{ width: '100%', height: '100%', backgroundColor: 'transparent' }}
+            stateMachines="State Machine 1"
+          />
+        </div>
+        {views !== null && (
+          <div className="flex items-baseline gap-2 text-3xl rammetto-one-regular offwhite font-bold -mt-6">
+            <SlotCounter value={views} />
+            <span className="opacity-70">views</span>
+          </div>
+        )}
+      </div>
       <Header />
       <h2 className="rammetto-one-regular offwhite text-4xl pt-12 pb-6">Teams</h2>
       <Experience />
@@ -33,7 +51,7 @@ function HomePage() {
       <h2 className="rammetto-one-regular offwhite text-4xl pt-12 pb-6">Research</h2>
       <Research />
       <h2 className="rammetto-one-regular offwhite text-4xl pt-12 pb-6">Awards</h2>
-      <Dubs></Dubs>
+      <Dubs />
     </>
   )
 }

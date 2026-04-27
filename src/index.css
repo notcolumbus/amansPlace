@@ -6,7 +6,7 @@
 
 body {
   background-color: #a3b065;
-  transition: background-color 0.3s;
+  transition: background-color 300ms ease-out;
 }
 
 .rammetto-one-regular {
@@ -23,11 +23,14 @@ body {
   font-size: 1.875rem;
   color: #fcecc9;
   cursor: pointer;
-  transition: opacity 0.3s;
+  transition: opacity 200ms ease-out, transform 200ms ease-out;
 }
 
-.social-icon:hover {
-  opacity: 0.8;
+@media (hover: hover) and (pointer: fine) {
+  .social-icon:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
 }
 
 .luckiest-guy-regular {
@@ -89,5 +92,40 @@ body {
 
   100% {
     transform: scaleY(1) scaleX(1) scale(1);
+  }
+}
+
+@keyframes mobile-nav-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes mobile-nav-item-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-nav-overlay {
+  animation: mobile-nav-fade-in 200ms ease-out both;
+}
+
+.mobile-nav-item {
+  animation: mobile-nav-item-in 250ms cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+.mobile-nav-item:nth-child(1) { animation-delay: 40ms; }
+.mobile-nav-item:nth-child(2) { animation-delay: 80ms; }
+.mobile-nav-item:nth-child(3) { animation-delay: 120ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-nav-overlay,
+  .mobile-nav-item {
+    animation-duration: 0.01ms !important;
   }
 }

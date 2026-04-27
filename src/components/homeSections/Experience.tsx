@@ -78,14 +78,14 @@ function Experience() {
                 duration="May 2026 - Aug 2026"
                 logo={<KnotLogo />}
             />
-            
+
             <JobCard
                 company="Idopt Lab"
                 position="Research Intern"
                 duration="Jan 2026 - May 2026"
                 logoSrc="https://ik.imagekit.io/sjuopypj1/vt.svg"
             />
-            
+
             <JobCard
                 company="VTHacks"
                 position="Tech Lead"
@@ -101,7 +101,7 @@ function Experience() {
                         duration="Aug 2025 - Present"
                         logoSrc='https://ik.imagekit.io/sjuopypj1/PNG%20to%20WEBP%20Converter.webp?updatedAt=1767878044533'
                     />
-                    
+
                     <JobCard
                         company="Lumiq"
                         position="AI Developer Intern"
@@ -112,7 +112,7 @@ function Experience() {
             )}
 
             {!isDesktop && (
-                <button onClick={toggleShow} className='text-[#fcecc9]/90 md:hidden mt-1 atkinson-hyperlegible-next-regular '>
+                <button onClick={toggleShow} className='text-[#fcecc9]/90 md:hidden mt-1 atkinson-hyperlegible-next-regular transition-transform duration-100 ease-out active:scale-[0.97]'>
                     {isOpen ? 'Show Less' : 'Show More'}
                 </button>
             )}

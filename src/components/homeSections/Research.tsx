@@ -11,7 +11,7 @@ function Research() {
         <img
           src="https://sacd.larc.nasa.gov/wp-content/uploads/sites/167/2021/04/RAM-hero-1024x421.png"
           alt="NASA RAM"
-          className="absolute inset-0 opacity-50 w-full h-full object-cover"
+          className="absolute inset-0 opacity-50 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
           loading="lazy"
         />
       </ResearchCard>
@@ -26,7 +26,7 @@ function Research() {
           loop
           muted
           playsInline
-          className="absolute inset-0 opacity-50 w-full h-full object-cover"
+          className="absolute inset-0 opacity-50 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
         />
       </ResearchCard>
     </div>
@@ -44,7 +44,7 @@ const ResearchCard = ({
   description: string;
   children: ReactNode;
 }) => (
-  <div className="relative overflow-hidden aspect-[3/4] sm:aspect-auto sm:h-64 md:h-72 lg:h-96 w-full md:flex-1 bg-[#2D2D2D]">
+  <div className="group relative overflow-hidden aspect-[3/4] sm:aspect-auto sm:h-64 md:h-72 lg:h-96 w-full md:flex-1 bg-[#2D2D2D]">
     {children}
     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10" />
     <div className="absolute p-6 left-0 top-0 z-20 w-full">
