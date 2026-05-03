@@ -99,6 +99,12 @@ function Navbar({ views }: { views: number | null }) {
 
       {/* Mobile/Tablet: horizontal nav with dropdown */}
       <div className="lg:hidden pt-15 flex items-baseline flex-wrap gap-4">
+        {views !== null && (
+          <div className={`flex items-baseline gap-2 text-2xl ${hc} font-bold`}>
+            <SlotCounter value={views} />
+            <span className="opacity-70">views</span>
+          </div>
+        )}
         <h1 className={`${hc} text-3xl sm:text-4xl inline`}>
           <TextMorph as="span" className={hc}>
             {"Aman's "}
