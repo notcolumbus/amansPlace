@@ -1,4 +1,4 @@
-import { useMemo, useEffect, useRef, useState, useCallback } from 'react';
+import { useMemo, useEffect, useRef, useState, useCallback, memo } from 'react';
 
 interface Item {
   id: string;
@@ -19,12 +19,19 @@ const useColumns = () => {
   });
 
   useEffect(() => {
+    let timeoutId: number;
     const onResize = () => {
-      const w = window.innerWidth;
-      setCols(w >= 1024 ? 3 : w >= 640 ? 2 : 1);
+      clearTimeout(timeoutId);
+      timeoutId = window.setTimeout(() => {
+        const w = window.innerWidth;
+        setCols(w >= 1024 ? 3 : w >= 640 ? 2 : 1);
+      }, 150);
     };
     window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
+    return () => {
+      window.removeEventListener('resize', onResize);
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   return cols;
@@ -37,7 +44,7 @@ const shimmerStyle = `
 }
 `;
 
-const MasonryImage: React.FC<{ src: string }> = ({ src }) => {
+const MasonryImage: React.FC<{ src: string }> = memo(({ src }) => {
   const [loaded, setLoaded] = useState(false);
 
   const onLoad = useCallback(() => setLoaded(true), []);
@@ -59,6 +66,7 @@ const MasonryImage: React.FC<{ src: string }> = ({ src }) => {
       <img
         src={src}
         alt=""
+        loading="lazy"
         onLoad={onLoad}
         style={{
           width: '100%',
@@ -73,7 +81,8 @@ const MasonryImage: React.FC<{ src: string }> = ({ src }) => {
       />
     </>
   );
-};
+});
+MasonryImage.displayName = 'MasonryImage';
 
 const Masonry: React.FC<MasonryProps> = ({ items }) => {
   const columns = useColumns();
@@ -82,11 +91,18 @@ const Masonry: React.FC<MasonryProps> = ({ items }) => {
 
   useEffect(() => {
     if (!containerRef.current) return;
+    let rafId: number;
     const ro = new ResizeObserver(([entry]) => {
-      setContainerWidth(entry.contentRect.width);
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        setContainerWidth(entry.contentRect.width);
+      });
     });
     ro.observe(containerRef.current);
-    return () => ro.disconnect();
+    return () => {
+      ro.disconnect();
+      cancelAnimationFrame(rafId);
+    };
   }, []);
 
   const gap = 4;
