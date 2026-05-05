@@ -26,7 +26,7 @@ function WorkCard({ title, slug, icon, color, titleFontClass = "", titleFontSize
             whileHover={{ scale: 0.97 }} 
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.15, ease: "easeOut" }} 
-            className="aspect-2/3 sm:aspect-auto sm:h-64 md:h-72 lg:h-96 w-full p-6 flex flex-col justify-between cursor-pointer rounded-xl overflow-hidden" 
+            className="aspect-2/3 sm:aspect-auto sm:h-64 md:h-72 lg:h-96 w-full p-6 flex flex-col justify-between cursor-pointer overflow-hidden" 
             style={{ backgroundColor: color }} 
             onClick={handleOpenFullscreen}
         >
