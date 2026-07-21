@@ -130,3 +130,61 @@ body {
     animation-duration: 0.01ms !important;
   }
 }
+
+/* Minimal retro record: flat warm charcoal with thin groove rings and a
+   plain cream label. The small label dot is what makes the spin readable. */
+.music-disk {
+  position: relative;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-radial-gradient(circle at center, #2e2a25 0px, #2e2a25 3px, #3b352e 3px, #3b352e 4px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  animation: disk-spin 3s linear infinite;
+  animation-play-state: paused;
+}
+
+.music-disk-spinning {
+  animation-play-state: running;
+}
+
+.music-disk-label {
+  position: relative;
+  width: 34%;
+  height: 34%;
+  border-radius: 9999px;
+  background: #fcecc9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.music-disk-label::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  width: 22%;
+  height: 22%;
+  border-radius: 9999px;
+  background: #c4553d;
+}
+
+.music-disk-hole {
+  width: 22%;
+  height: 22%;
+  border-radius: 9999px;
+  background: #2e2a25;
+}
+
+@keyframes disk-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .music-disk {
+    animation: none;
+  }
+}

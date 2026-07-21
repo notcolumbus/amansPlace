@@ -83,7 +83,8 @@ function Navbar({ views }: { views: number | null }) {
             ));
           })()}
         </nav>
-        <div className="mt-auto pb-4">
+        {/* views hidden for now — will live somewhere else */}
+        <div className="mt-auto pb-4 hidden">
           {views !== null && (
             <div className={`flex items-baseline gap-2 text-3xl ${hc} font-bold`}>
               <SlotCounter value={views} />
